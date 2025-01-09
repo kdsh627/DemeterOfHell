@@ -3,8 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class ButtonManager : MonoBehaviour
 {
-    [SerializeField]
-    GameObject optionCanvas; // 옵션 캔버스
+    public GameObject optionCanvas; // 옵션 캔버스
 
     // 게임 스타트 버튼 클릭 - 게임 화면 이동
    public void PressedGameStart()
