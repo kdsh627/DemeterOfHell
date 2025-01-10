@@ -35,9 +35,9 @@ public class ButtonManager : MonoBehaviour
         optionCanvas.SetActive(false);
     }
 
-    public void BackTitle() // 타이틀로 돌아오기(임시, 바뀔 수 있음)
+    public void BackTitle() // 타이틀로 돌아오기(임시, 바뀔 수 있음, 나중에 Song 빼기)
     {
-        SceneManager.LoadScene("Title");
+        SceneManager.LoadScene("Title_Song");
     }
 
     public void WaveStart() // 웨이브 스타트 버튼 클릭 시 GameManager에서 웨이브 스타트 함수 호출
@@ -49,7 +49,7 @@ public class ButtonManager : MonoBehaviour
     public void NextRound() // 클리어 시 팝업에서 다음 라운드로 이동
     {
         string roundCount = gameManager.GetComponent<GamaManager>().roundCount.ToString(); // 게임매니저에서 현재 라운드 변수 string으로 변환
-        SceneManager.LoadScene("Round" + roundCount);  // 씬 이름 + 변수로 다른 라운드로 이동
+        SceneManager.LoadScene("Round" + roundCount +"_Song");  // 씬 이름 + 변수로 다른 라운드로 이동, 나중에 Song 빼기
     }
 
 }
