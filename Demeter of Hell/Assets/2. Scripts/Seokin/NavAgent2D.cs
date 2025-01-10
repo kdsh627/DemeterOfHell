@@ -4,7 +4,7 @@ using UnityEngine.AI;
 public class NavAgent2D : MonoBehaviour
 {
     NavMeshAgent agent;
-    [SerializeField] Transform target;
+    public Transform target;
 
     private void Awake()
     {
