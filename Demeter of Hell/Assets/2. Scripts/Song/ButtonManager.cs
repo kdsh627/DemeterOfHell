@@ -44,4 +44,12 @@ public class ButtonManager : MonoBehaviour
     {
         gameManager.GetComponent<GamaManager>().WaveStart();
     }
+
+    
+    public void NextRound() // 클리어 시 팝업에서 다음 라운드로 이동
+    {
+        string roundCount = gameManager.GetComponent<GamaManager>().roundCount.ToString(); // 게임매니저에서 현재 라운드 변수 string으로 변환
+        SceneManager.LoadScene("Round" + roundCount);  // 씬 이름 + 변수로 다른 라운드로 이동
+    }
+
 }
