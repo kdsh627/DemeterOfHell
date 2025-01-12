@@ -35,6 +35,7 @@ public class ResolutionManager : MonoBehaviour
             option.text = item.width + " x " + item.height;
             resolutionDropdown.options.Add(option);
         
+            // 현재 해상도의 값을 옵션창에서 보여줌
             if(item.width == Screen.width && item.height == Screen.height)
             {
                 resolutionDropdown.value = resolutionNum;
@@ -42,23 +43,23 @@ public class ResolutionManager : MonoBehaviour
             }
             resolutionDropdown.RefreshShownValue(); // 드롭다운에서 나타나는 값 새로고침
 
-            fullScreenToggle.isOn = Screen.fullScreenMode.Equals(FullScreenMode.FullScreenWindow) ? true : false;
+            fullScreenToggle.isOn = Screen.fullScreenMode.Equals(FullScreenMode.FullScreenWindow) ? true : false; // 현재 토글이 눌려 있으면 전체화면, 아니면 창모드
         }
 
         
     }
 
-    public void ResolutionChange(int x)
+    public void ResolutionChange(int x) // 해상도 리스트의 인덱스 값을 setResolution의 값으로 넘겨주기 위한 변수 변경 함수
     {
         resolutionNum = x;
     }
 
-    public void FullScreenToogle(bool isFull)
+    public void FullScreenToogle(bool isFull) // 토글이눌리면 창모드, 아니면 윈도우 모드
     {
         fullScreenMode = isFull ? FullScreenMode.FullScreenWindow : FullScreenMode.Windowed;
     }
 
-    public void SetResolution()
+    public void SetResolution() // 선택된 해상도 리스트 인덱스 값의 길이와 높이를 불러와 현재 해상도를 변경하는 함수
     {
         Screen.SetResolution(resolutions[resolutionNum].width, resolutions[resolutionNum].height, fullScreenMode);
     }
