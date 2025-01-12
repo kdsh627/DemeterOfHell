@@ -4029,7 +4029,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1608411241}
         m_TargetAssemblyTypeName: ResolutionManager, Assembly-CSharp
         m_MethodName: ResolutionChange
-        m_Mode: 3
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5013,7 +5013,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1608411241}
         m_TargetAssemblyTypeName: ResolutionManager, Assembly-CSharp
         m_MethodName: FullScreenToogle
-        m_Mode: 6
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5416,7 +5416,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6714142258543759917, guid: bbe15bfe94156c44ebe732c6b4a90fe1, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6714142258543759917, guid: bbe15bfe94156c44ebe732c6b4a90fe1, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
