@@ -16,9 +16,16 @@ public class RangeMonsterController : MonsterAttackController
         if(Vector3.Distance(transform.position, target.position)<=attackRange)
         {
             agent.isStopped = true;
+            anim.SetTrigger("Idle");
+
         }
         else
+        {
             agent.isStopped = false;
+            anim.SetTrigger("Run");
+        }
 
     }
+
+    
 }

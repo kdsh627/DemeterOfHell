@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3969277044181248910}
   - component: {fileID: 7404944005882644069}
   - component: {fileID: 459370734318557200}
-  - component: {fileID: 7397409340068743117}
+  - component: {fileID: -2215065991834133764}
   m_Layer: 0
   m_Name: Melee Monster
   m_TagString: Untagged
@@ -226,7 +226,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.4628544, y: 0.47175312}
   m_EdgeRadius: 0
---- !u!114 &7397409340068743117
+--- !u!114 &-2215065991834133764
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -248,4 +248,3 @@ MonoBehaviour:
   anim: {fileID: 0}
   projectilePrefab: {fileID: 0}
   attackRange: 10
-  projectileFireTime: 0.5

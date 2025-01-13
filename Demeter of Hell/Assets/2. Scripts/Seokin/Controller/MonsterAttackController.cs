@@ -37,13 +37,25 @@ public class MonsterAttackController : NavAgent2D
 
                 currentCooltime = attackCooltime;
             }
-            anim.SetTrigger("Run");
+            AfterAttack();
         }
 
         // 쿨타임 감소
         if (currentCooltime > 0)
         {
             currentCooltime -= Time.deltaTime;
+        }
+        // 범위 안에 있으면 공격 안하게 됨
+        if (Vector3.Distance(transform.position, target.position) <= attackRange)
+        {
+            agent.isStopped = true;
+            anim.SetTrigger("Idle");
+
+        }
+        else
+        {
+            agent.isStopped = false;
+            anim.SetTrigger("Run");
         }
     }
 
@@ -81,7 +93,7 @@ public class MonsterAttackController : NavAgent2D
         
     }
 
-    
+    protected virtual void AfterAttack() { }
     
     
 }
