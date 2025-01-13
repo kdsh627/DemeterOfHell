@@ -2,9 +2,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
-public class RangeTargetManager : MonoBehaviour
+public class TargetManager : MonoBehaviour
 {
-    public static RangeTargetManager Instance { get; private set; }
+    public static TargetManager Instance { get; private set; }
 
     
     public List<Transform> targets = new List<Transform>();

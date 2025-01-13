@@ -52,7 +52,7 @@ public class RangeMonsterController : NavAgent2D
         Transform closest = null;
         float closestDistance = Mathf.Infinity;
 
-        foreach (Transform potentialTarget in RangeTargetManager.Instance.targets)
+        foreach (Transform potentialTarget in TargetManager.Instance.targets)
         {
             if (potentialTarget == null) continue; // 타겟이 제거되었으면 스킵
 
