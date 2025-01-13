@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3969277044181248910}
   - component: {fileID: 7404944005882644069}
   - component: {fileID: 459370734318557200}
-  - component: {fileID: 8703111834321290483}
+  - component: {fileID: 7397409340068743117}
   m_Layer: 0
   m_Name: Melee Monster
   m_TagString: Untagged
@@ -226,7 +226,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.4628544, y: 0.47175312}
   m_EdgeRadius: 0
---- !u!114 &8703111834321290483
+--- !u!114 &7397409340068743117
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -235,7 +235,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4734820251503001246}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcfd81f173cef4e46a8d83fe91bb9f36, type: 3}
+  m_Script: {fileID: 11500000, guid: 0fa986022856de647b29c171ddd58c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
@@ -246,3 +246,6 @@ MonoBehaviour:
   worldTreePosition: {fileID: 0}
   target: {fileID: 0}
   anim: {fileID: 0}
+  projectilePrefab: {fileID: 0}
+  attackRange: 10
+  projectileFireTime: 0.5
