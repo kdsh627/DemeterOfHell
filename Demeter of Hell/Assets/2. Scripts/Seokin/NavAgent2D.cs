@@ -1,36 +1,34 @@
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.U2D;
 
-public class NavAgent2D : MonoBehaviour
+public class NavAgent2D : MonsterController
 {
-    NavMeshAgent agent;
+    public NavMeshAgent agent;
     public Transform worldTreePosition;
     public Transform target;
+    public Animator anim;
+
+    SpriteRenderer sprite;
 
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
-
+        anim = GetComponent<Animator>();
+        sprite = GetComponent<SpriteRenderer>();
         //시작 시 첫 목표는 세계수
         target = worldTreePosition;
     }
 
-    private void Update()
+    public void Update()
     {
         agent.SetDestination(target.position);
+
+
+        sprite.flipX = transform.position.x > target.position.x;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        target = collision.transform;
-        
-        Debug.Log("d");
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        target = worldTreePosition;
-    }
+    
 }

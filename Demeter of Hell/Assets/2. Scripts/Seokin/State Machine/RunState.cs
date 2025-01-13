@@ -18,7 +18,7 @@ public class RunState : StateMachineBehaviour
             animator.SetTrigger("Attack");
         }
         animator.SetTrigger("Run");
-        monster.DirectionMonster(monster.player.position.x, monsterTransform.position.x);
+        //monster.DirectionMonster(monster.player.position.x, monsterTransform.position.x);
     }
 
     public virtual void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
