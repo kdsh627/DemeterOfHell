@@ -229,7 +229,7 @@ GameObject:
   - component: {fileID: 2597189653918243141}
   - component: {fileID: 769442767141738808}
   m_Layer: 5
-  m_Name: Button
+  m_Name: RandomUpButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -335,7 +335,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2597189653918243141}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
+        m_MethodName: RandomPointUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4430433508441555833
 GameObject:
   m_ObjectHideFlags: 0
@@ -349,7 +361,7 @@ GameObject:
   - component: {fileID: 4262131056031699476}
   - component: {fileID: 2118473925726768062}
   m_Layer: 5
-  m_Name: Button
+  m_Name: FixedUpButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -455,7 +467,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4262131056031699476}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
+        m_MethodName: FixedPointUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5052008056212519160
 GameObject:
   m_ObjectHideFlags: 0

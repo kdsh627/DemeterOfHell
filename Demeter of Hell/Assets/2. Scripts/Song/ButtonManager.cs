@@ -52,4 +52,13 @@ public class ButtonManager : MonoBehaviour
         SceneManager.LoadScene("Round" + roundCount +"_Song");  // 씬 이름 + 변수로 다른 라운드로 이동, 나중에 Song 빼기
     }
 
+    public void FixedPointUp() // 능력치 고정값 증가 버튼
+    {
+
+    }
+
+    public void RandomPointUp() // 능력치 랜덤값 증가 버튼
+    {
+
+    }
 }
