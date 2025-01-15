@@ -11,7 +11,7 @@ public class EnforceManager : MonoBehaviour
 
 
     // 레벨업시 강화창 띄우기
-    void PopUpEnforceCanvas()
+    public void PopUpEnforceCanvas()
     {
         
     }

@@ -3,8 +3,11 @@ using UnityEngine.SceneManagement;
 
 public class ButtonManager : MonoBehaviour
 {
+    [SerializeField]
+    GameObject gameManager;
+
     public GameObject optionCanvas; // 옵션 캔버스
-    public GameObject gameManager;
+    //public GameObject gameManager;
 
     // 게임 스타트 버튼 클릭 - 게임 화면 이동
    public void PressedGameStart()
@@ -50,6 +53,11 @@ public class ButtonManager : MonoBehaviour
     {
         string roundCount = gameManager.GetComponent<GamaManager>().roundCount.ToString(); // 게임매니저에서 현재 라운드 변수 string으로 변환
         SceneManager.LoadScene("Round" + roundCount +"_Song");  // 씬 이름 + 변수로 다른 라운드로 이동, 나중에 Song 빼기
+    }
+
+    public void LevelUp()
+    {
+        //gameManager.characterLevel;
     }
 
     public void FixedPointUp() // 능력치 고정값 증가 버튼

@@ -17,6 +17,7 @@ public class GamaManager : MonoBehaviour
     public int monsterCount; // 웨이브당 몬스터 처치해야하는 수(웨이브 밸런스 잡으면 변수값이 아니라 함수나 key, value값으로 받아올 예정
     public int bossMonsterCount; // 보스몬스터 잡혔는지 여부 변수
     public int roundCount; // 라운드 수(스테이지)
+    public int characterLevel; // 캐릭터 레벨(최대 60)
 
     public TMP_Text waveCountText; // 현재 웨이브 표시
     public TMP_Text gameResultText; // 게임 결과 텍스트
@@ -26,15 +27,26 @@ public class GamaManager : MonoBehaviour
     public GameObject bossMonster; // 보스몬스터 프리팹
     public GameObject bossSpawnPoint; //  보스몬스터용 스폰 지점(몬스터 스폰 지점 나중에 생기면 바꿀 예정 - 테스트용)
     public GameObject resultPopUpCanvas; // 클리어 또는 플레이어 사망시 띄울 팝업 캔버스
+    public GameObject enforcePopCanvas; // 5레벨업 당 강화창 띄우기
 
     void Start()
     {
         waveCount = 1; // 맵 입장시 시작 웨이브는 1
         roundCount = 1;
+        characterLevel = 1;
         bossMonsterCount = 1; // 보스몹 카운트, 보스몹 클리어시 다음 라운드로 가기 위한 변수
         waveCountText.text = "Wave " + waveCount.ToString() + " / " + maxWaveCount.ToString() ; // 시작 웨이브를 표기
 
     }
+
+    void Update()
+    {
+        if(characterLevel % 5 == 0)
+        {
+            enforcePopCanvas.SetActive(true);
+        }
+    }
+
 
     // 보스 스폰
     public void BossSpawn()
