@@ -1,18 +1,16 @@
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class EnforceItem : MonoBehaviour
 {
-    public Image enforceItemImage;
-    public TMP_Text fixedUp;
-    public TMP_Text randomUp;
-
-
-    public void SetItemContent(Sprite itemImage, string fixedtext, string randomtext)
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
     {
-        enforceItemImage.sprite = itemImage;
-        fixedUp.text = fixedtext;
-        randomUp.text = randomtext;
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
     }
 }
