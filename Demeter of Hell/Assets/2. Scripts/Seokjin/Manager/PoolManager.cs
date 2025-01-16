@@ -1,67 +1,99 @@
-using System.Collections;
-using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
-
-public class PoolManager : MonoBehaviour
+using UnityEngine.Pool;
+using System.Collections.Generic;
+class Pool
 {
-    public static PoolManager Instance { get; private set; }
+    GameObject _prefab;
+    IObjectPool<GameObject> _pool;
 
-    public GameObject[] prefabs;//프리펩을 보관하는 변수
-
-    List<GameObject>[] pools;//풀 담당을 하는 리스트들
-
-    void Awake()
+    Transform _root;
+    Transform Root
     {
-        //싱글톤
-        if (Instance == null)
+        get
         {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-
-        pools = new List<GameObject>[prefabs.Length];
-
-        for (int index = 0; index < prefabs.Length; index++)
-        {
-            pools[index] = new List<GameObject>();//배열안에 리스트도 초기화
-
-        }
-
-    }
-    public GameObject Get(int index)//비어있는 오브젝트를 반환하는 함수
-    {
-        GameObject select = null;
-
-        //선택한 풀에 놀고있는 게임 오브젝트 접근
-        //발견하면  select 할당
-        foreach (GameObject item in pools[index])
-        {
-            if (!item.activeSelf)// 만약 활성화되지않았다면
+            if (_root == null)
             {
-                select = item;
-                select.SetActive(true);// 활성화
-                break;
-
+                GameObject go = new GameObject() { name = $"{_prefab.name}Root" };
+                _root = go.transform;
             }
+            return _root;
         }
 
-        //모두 쓰고있다면 생성해서 select에 할당
-        if (select == null)
-        {
-            select = Instantiate(prefabs[index], transform);// 오브젝트를 복사하는 함수. 원본 , 자기 자신에게 넣음
-            pools[index].Add(select);//pools에 등록
+    }
+    public Pool(GameObject prefab)
+    {
+        _prefab = prefab;
+        _pool = new ObjectPool<GameObject>(OnCreate, OnGet, OnRelease, OnDestroy);
+    }
 
+    public GameObject Pop()
+    {
+        return _pool.Get();
 
-        }
-        return select;
+    }
 
+    public void Push(GameObject go)
+    {
+        _pool.Release(go);
+    }
+
+    #region Funcs
+
+    GameObject OnCreate()
+    {
+        GameObject go = GameObject.Instantiate(_prefab); go.transform.parent = Root;
+        go.name = _prefab.name;
+        return go;
+    }
+
+    void OnGet(GameObject go)
+    {
+        go.SetActive(true);
+    }
+    void OnRelease(GameObject go)
+    {
+        go.SetActive(false);
+    }
+    void OnDestroy(GameObject go)
+    {
+
+        GameObject.Destroy(go);
     }
 
 
 
+    #endregion
+}
+public class PoolManager
+{
+    Dictionary<string, Pool> _pools = new Dictionary<string, Pool>();
 
+    public GameObject Pop(GameObject prefab)
+    {
+        if (_pools.ContainsKey(prefab.name) == false)
+        {
+            CreatePool(prefab);
+        }
+
+        return _pools[prefab.name].Pop();
+    }
+
+    public bool Push(GameObject go)
+    {
+        if (_pools.ContainsKey(go.name) == false)
+        {
+            return false;
+        }
+
+        _pools[go.name].Push(go);
+        return true;
+
+    }
+
+    void CreatePool(GameObject prefab)
+    {
+        Pool pool = new Pool(prefab);
+        _pools.Add(prefab.name, pool);
+    }
 }
