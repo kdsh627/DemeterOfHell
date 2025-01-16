@@ -1,13 +1,19 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class ButtonManager : MonoBehaviour
 {
+    [SerializeField]
+    GameObject gameManager;
+
     public GameObject optionCanvas; // 옵션 캔버스
-    public GameObject gameManager;
+    //public GameObject gameManager;
+
+    
 
     // 게임 스타트 버튼 클릭 - 게임 화면 이동
-   public void PressedGameStart()
+    public void PressedGameStart()
     {
         SceneManager.LoadScene("Round1");
     }
@@ -52,13 +58,20 @@ public class ButtonManager : MonoBehaviour
         SceneManager.LoadScene("Round" + roundCount +"_Song");  // 씬 이름 + 변수로 다른 라운드로 이동, 나중에 Song 빼기
     }
 
+    public void LevelUp()
+    {
+        gameManager.GetComponent<GamaManager>().characterLevel++;
+    }
+
     public void FixedPointUp() // 능력치 고정값 증가 버튼
     {
-
+        gameManager.GetComponent<GamaManager>().state += 5;
+        gameManager.GetComponent<GamaManager>().CloseEnforcePopUp();
     }
 
     public void RandomPointUp() // 능력치 랜덤값 증가 버튼
     {
-
+        gameManager.GetComponent<GamaManager>().state += Random.Range(1, 10);
+        gameManager.GetComponent<GamaManager>().CloseEnforcePopUp();
     }
 }

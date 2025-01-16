@@ -17,6 +17,9 @@ public class GamaManager : MonoBehaviour
     public int monsterCount; // 웨이브당 몬스터 처치해야하는 수(웨이브 밸런스 잡으면 변수값이 아니라 함수나 key, value값으로 받아올 예정
     public int bossMonsterCount; // 보스몬스터 잡혔는지 여부 변수
     public int roundCount; // 라운드 수(스테이지)
+    public int characterLevel; // 캐릭터 레벨(최대 60)
+    public int state; // 캐릭터 스텟(임시)
+    public int enforceCount;
 
     public TMP_Text waveCountText; // 현재 웨이브 표시
     public TMP_Text gameResultText; // 게임 결과 텍스트
@@ -26,15 +29,34 @@ public class GamaManager : MonoBehaviour
     public GameObject bossMonster; // 보스몬스터 프리팹
     public GameObject bossSpawnPoint; //  보스몬스터용 스폰 지점(몬스터 스폰 지점 나중에 생기면 바꿀 예정 - 테스트용)
     public GameObject resultPopUpCanvas; // 클리어 또는 플레이어 사망시 띄울 팝업 캔버스
+    public GameObject enforcePopUpCanvas; // 5레벨업 당 강화창 띄우기
 
     void Start()
     {
         waveCount = 1; // 맵 입장시 시작 웨이브는 1
         roundCount = 1;
+        characterLevel = 1;
+        state = 1; // 임시
+        enforceCount = 0;
         bossMonsterCount = 1; // 보스몹 카운트, 보스몹 클리어시 다음 라운드로 가기 위한 변수
         waveCountText.text = "Wave " + waveCount.ToString() + " / " + maxWaveCount.ToString() ; // 시작 웨이브를 표기
 
     }
+
+    void Update()
+    {
+        int tempEnforceCount = enforceCount;
+        if(characterLevel % 5 == 0) // 5레벨업 시 강화창 팝업 띄우기 및 게임 정지
+        {
+            enforcePopUpCanvas.SetActive(true);
+            Time.timeScale = 0;
+        }
+        if(tempEnforceCount != enforceCount)
+        {
+            CloseEnforcePopUp();
+        }
+    }
+
 
     // 보스 스폰
     public void BossSpawn()
@@ -84,6 +106,12 @@ public class GamaManager : MonoBehaviour
         resultPopUpCanvas.SetActive(true); // 결과 팝업 띄움
         gameResultText.text = "You Die!";
         Time.timeScale = 0; // 게임멈춤
+    }
+    
+    public void CloseEnforcePopUp() // 강화완료 시 팝업 닫기
+    {
+        enforcePopUpCanvas.SetActive(false);
+        Time.timeScale = 1f;
     }
 
 
