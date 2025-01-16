@@ -20,6 +20,7 @@ public class GamaManager : MonoBehaviour
     public int characterLevel; // 캐릭터 레벨(최대 60)
     public int state; // 캐릭터 스텟(임시)
     public int enforceCount;
+    public int tempEnforceCount;
 
     public TMP_Text waveCountText; // 현재 웨이브 표시
     public TMP_Text gameResultText; // 게임 결과 텍스트
@@ -38,6 +39,7 @@ public class GamaManager : MonoBehaviour
         characterLevel = 1;
         state = 1; // 임시
         enforceCount = 0;
+        tempEnforceCount = 0;
         bossMonsterCount = 1; // 보스몹 카운트, 보스몹 클리어시 다음 라운드로 가기 위한 변수
         waveCountText.text = "Wave " + waveCount.ToString() + " / " + maxWaveCount.ToString() ; // 시작 웨이브를 표기
 
@@ -45,13 +47,12 @@ public class GamaManager : MonoBehaviour
 
     void Update()
     {
-        int tempEnforceCount = enforceCount;
-        if(characterLevel % 5 == 0) // 5레벨업 시 강화창 팝업 띄우기 및 게임 정지
-        {
-            enforcePopUpCanvas.SetActive(true);
-            Time.timeScale = 0;
-        }
-        if(tempEnforceCount != enforceCount)
+        if(characterLevel % 5 == 0 && tempEnforceCount == enforceCount) // 5레벨업 시 강화창 팝업 띄우기 및 게임 정지
+            {
+                enforcePopUpCanvas.SetActive(true);
+                Time.timeScale = 0;
+            }
+        else if(tempEnforceCount != enforceCount)
         {
             CloseEnforcePopUp();
         }
@@ -110,8 +111,8 @@ public class GamaManager : MonoBehaviour
     
     public void CloseEnforcePopUp() // 강화완료 시 팝업 닫기
     {
-        enforcePopUpCanvas.SetActive(false);
         Time.timeScale = 1f;
+        enforcePopUpCanvas.SetActive(false);
     }
 
 

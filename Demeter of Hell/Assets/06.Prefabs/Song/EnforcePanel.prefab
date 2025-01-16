@@ -90,9 +90,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1567756617619041675}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 756ef3579edb10e4a9ea7cd396cfeb15, type: 3}
+  m_Script: {fileID: 11500000, guid: ec42ded4bbbcd3242beeee0441c2c6fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enforceItemImage: {fileID: 3671020049675202893}
+  fixedUp: {fileID: 8064886802132697933}
+  randomUp: {fileID: 4862668137361676404}
 --- !u!1 &3450319538634615219
 GameObject:
   m_ObjectHideFlags: 0
