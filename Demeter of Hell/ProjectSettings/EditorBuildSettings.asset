@@ -6,13 +6,13 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/5. Scenes/Song/Title_Song.unity
+    path: Assets/05.Scenes/Song/Title_Song.unity
     guid: 49528131e8da99b438e9f0cd61f5b9f8
   - enabled: 1
-    path: Assets/5. Scenes/Song/Round1_Song.unity
+    path: Assets/05.Scenes/Song/Round1_Song.unity
     guid: 5d479fdc37f9b5146865a72b94d7b977
   - enabled: 1
-    path: Assets/5. Scenes/Song/Round2_Song.unity
+    path: Assets/05.Scenes/Song/Round2_Song.unity
     guid: 9d1f8a01c6e235f41804acf86f80b0ae
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
