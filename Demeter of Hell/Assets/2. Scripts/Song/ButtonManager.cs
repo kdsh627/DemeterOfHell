@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,8 +10,10 @@ public class ButtonManager : MonoBehaviour
     public GameObject optionCanvas; // 옵션 캔버스
     //public GameObject gameManager;
 
+    
+
     // 게임 스타트 버튼 클릭 - 게임 화면 이동
-   public void PressedGameStart()
+    public void PressedGameStart()
     {
         SceneManager.LoadScene("Round1");
     }
@@ -57,16 +60,18 @@ public class ButtonManager : MonoBehaviour
 
     public void LevelUp()
     {
-        //gameManager.characterLevel;
+        gameManager.GetComponent<GamaManager>().characterLevel++;
     }
 
     public void FixedPointUp() // 능력치 고정값 증가 버튼
     {
-
+        gameManager.GetComponent<GamaManager>().state += 5;
+        gameManager.GetComponent<GamaManager>().CloseEnforcePopUp();
     }
 
     public void RandomPointUp() // 능력치 랜덤값 증가 버튼
     {
-
+        gameManager.GetComponent<GamaManager>().state += Random.Range(1, 10);
+        gameManager.GetComponent<GamaManager>().CloseEnforcePopUp();
     }
 }
