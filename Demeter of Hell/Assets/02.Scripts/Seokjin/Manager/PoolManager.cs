@@ -2,6 +2,8 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Pool;
 using System.Collections.Generic;
+
+//프리펩 마다 풀을 가져감
 class Pool
 {
     GameObject _prefab;
@@ -65,10 +67,29 @@ class Pool
 
     #endregion
 }
-public class PoolManager
+public class PoolManager : MonoBehaviour
 {
+    public static PoolManager Instance { get; private set; }
+
     Dictionary<string, Pool> _pools = new Dictionary<string, Pool>();
 
+    
+
+    private void Awake()
+    {
+        // 싱글톤 초기화
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    //프리펩 생성 혹은 재활용
     public GameObject Pop(GameObject prefab)
     {
         if (_pools.ContainsKey(prefab.name) == false)
@@ -79,6 +100,7 @@ public class PoolManager
         return _pools[prefab.name].Pop();
     }
 
+    //프리펩 반납
     public bool Push(GameObject go)
     {
         if (_pools.ContainsKey(go.name) == false)
@@ -90,7 +112,7 @@ public class PoolManager
         return true;
 
     }
-
+    //재활용 할 프리펩이 없을 경우
     void CreatePool(GameObject prefab)
     {
         Pool pool = new Pool(prefab);
