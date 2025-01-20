@@ -67,11 +67,13 @@ public class ButtonManager : MonoBehaviour
     {
         gameManager.GetComponent<GamaManager>().state += 5;
         gameManager.GetComponent<GamaManager>().CloseEnforcePopUp();
+        gameManager.GetComponent<GamaManager>().enforceCount++;
     }
 
     public void RandomPointUp() // 능력치 랜덤값 증가 버튼
     {
         gameManager.GetComponent<GamaManager>().state += Random.Range(1, 10);
         gameManager.GetComponent<GamaManager>().CloseEnforcePopUp();
+        gameManager.GetComponent<GamaManager>().enforceCount++;
     }
 }

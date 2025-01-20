@@ -154,8 +154,9 @@ MonoBehaviour:
   bossMonsterCount: 0
   roundCount: 0
   characterLevel: 0
-  state: 87
+  state: 0
   enforceCount: 0
+  tempEnforceCount: 0
   waveCountText: {fileID: 978181732}
   gameResultText: {fileID: 279227279}
   bossMonster: {fileID: 0}
