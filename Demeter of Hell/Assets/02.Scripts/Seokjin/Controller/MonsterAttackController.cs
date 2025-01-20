@@ -29,13 +29,30 @@ public class MonsterAttackController : NavAgent2D
         {
             target = closestTarget;
 
-            // 타겟이 공격 범위 내에 있고 쿨타임이 0 이하라면 투사체 발사
-            if (Vector3.Distance(transform.position, target.position) <= attackRange && currentCooltime <= 0)
+            // 타겟이 공격 범위 내에 있고 
+            if (Vector3.Distance(transform.position, target.position) <= attackRange)
             {
-                // 애니메이션 트리거
-                anim.SetTrigger("Attack");
+                //쿨타임도 됐다면 공격
+                if(currentCooltime <= 0)
+                {
+                    Attack();
 
-                currentCooltime = attackCooltime;
+                    
+
+                }
+                //안됐다면 가만히 있기
+                else
+                {
+                    agent.isStopped = true;
+                    anim.SetTrigger("Idle");
+
+                }
+            }
+            //범위 내에 없다면 달려가기
+            else
+            {
+                agent.isStopped = false;
+                anim.SetTrigger("Run");
             }
             AfterAttack();
         }
@@ -45,18 +62,7 @@ public class MonsterAttackController : NavAgent2D
         {
             currentCooltime -= Time.deltaTime;
         }
-        //범위 안에 있으면 공격 안하게 됨
-        if (Vector3.Distance(transform.position, target.position) <= attackRange)
-        {
-            agent.isStopped = true;
-            anim.SetTrigger("Idle");
-
-        }
-        else
-        {
-            agent.isStopped = false;
-            anim.SetTrigger("Run");
-        }
+        
     }
 
     private Transform GetClosestTarget()
@@ -96,5 +102,10 @@ public class MonsterAttackController : NavAgent2D
 
     protected virtual void AfterAttack() { }
     
+    protected virtual void Attack() {
+        anim.SetTrigger("Attack");
+        
+        currentCooltime = attackCooltime;
     
+    }
 }

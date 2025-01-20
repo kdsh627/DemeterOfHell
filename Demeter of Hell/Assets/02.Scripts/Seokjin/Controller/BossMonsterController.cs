@@ -9,20 +9,13 @@ public class BossMonsterController : MonsterAttackController
     }
 
     // Update is called once per frame
-    void Update()
+    protected override void Attack()
     {
-        if (Vector3.Distance(transform.position, target.position) <= attackRange)
-        {
-            agent.isStopped = true;
-            anim.SetTrigger("Idle");
-
-        }
-        else
-        {
-            agent.isStopped = false;
-            anim.SetTrigger("Run");
-        }
-
+        anim.SetTrigger("Idle");
+        int index = Random.Range(0, 2); //패턴의 수 만큼 넣어주세요
+        anim.SetInteger("Pattern Index", index);
+        Debug.Log(index);
+        currentCooltime = attackCooltime;
     }
 
     public void PatternEnd()
