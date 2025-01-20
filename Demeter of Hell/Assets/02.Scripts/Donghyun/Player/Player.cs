@@ -1,21 +1,6 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
-
-public enum PlayerState
-{
-    Idle,
-    Walk,
-    Attack
-}
-
-public enum PlayerDirection
-{
-    RIGHT,
-    LEFT,
-    UP,
-    DOWN
-}
+using Types;
 
 public class Player : MonoBehaviour
 {
