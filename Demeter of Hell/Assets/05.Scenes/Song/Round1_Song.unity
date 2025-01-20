@@ -156,6 +156,7 @@ MonoBehaviour:
   characterLevel: 0
   state: 0
   enforceCount: 0
+  tempEnforceCount: 0
   waveCountText: {fileID: 978181732}
   gameResultText: {fileID: 279227279}
   bossMonster: {fileID: 0}
@@ -1896,7 +1897,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterEnforceItemParent: {fileID: 1369974231}
   plantEnforceItemParent: {fileID: 624523867}
-  enforceItem: {fileID: 0}
+  enforceItem: {fileID: 1567756617619041675, guid: 200970d18a3591f4ab38f089990fbc84, type: 3}
 --- !u!4 &1021909612
 Transform:
   m_ObjectHideFlags: 0
