@@ -23,7 +23,7 @@ public class MonsterAttackController : NavAgent2D
     {
         base.Update();
 
-        // 가장 가까운 타겟 찾기
+        //가장 가까운 타겟 찾기
         Transform closestTarget = GetClosestTarget();
         if (closestTarget != null)
         {
@@ -40,12 +40,12 @@ public class MonsterAttackController : NavAgent2D
             AfterAttack();
         }
 
-        // 쿨타임 감소
+        //쿨타임 감소
         if (currentCooltime > 0)
         {
             currentCooltime -= Time.deltaTime;
         }
-        // 범위 안에 있으면 공격 안하게 됨
+        //범위 안에 있으면 공격 안하게 됨
         if (Vector3.Distance(transform.position, target.position) <= attackRange)
         {
             agent.isStopped = true;
@@ -66,7 +66,7 @@ public class MonsterAttackController : NavAgent2D
 
         foreach (Transform potentialTarget in TargetManager.Instance.targets)
         {
-            if (potentialTarget == null) continue; // 타겟이 제거되었으면 스킵
+            if (potentialTarget == null) continue; //타겟이 제거되었으면 스킵
 
             float distance = Vector3.Distance(transform.position, potentialTarget.position);
             if (distance < closestDistance)
@@ -81,13 +81,14 @@ public class MonsterAttackController : NavAgent2D
 
     public void ShootProjectile()
     {
-        // 투사체 생성 및 방향 설정
-        GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+        GameObject projectile = PoolManager.Instance.Pop(projectilePrefab);
+        projectile.transform.position = transform.position;
+       
         Vector3 direction = (target.position - transform.position).normalized;
 
         if (projectile.TryGetComponent(out Rigidbody2D rb))
         {
-            rb.linearVelocity = direction * 5f; // 투사체 속도 조정
+            rb.linearVelocity = direction * 5f; //투사체 속도 조정
         }
 
         
