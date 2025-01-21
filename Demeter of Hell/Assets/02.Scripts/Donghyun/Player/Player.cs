@@ -1,28 +1,13 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
-
-public enum PlayerState
-{ 
-    Idle,
-    Walk,
-    Attack
-}
-
-public enum PlayerDirection
-{
-    RIGHT,
-    LEFT,
-    UP,
-    DOWN,
-    IDLE
-}
+using Types;
 
 public class Player : MonoBehaviour
 {
     [SerializeField] private List<GameObject> playerImage;
     [SerializeField] private List<Animator> animator;
     [SerializeField] private float speed;
+    [SerializeField] private PlayerDataSO playerData; //플레이어 데이터
 
     private Animator currentAnimator;
     private IPlayerState currentState;
@@ -32,11 +17,12 @@ public class Player : MonoBehaviour
     public float Speed => speed;
     public PlayerDirection CurrentDirection => currentDirection;
     public bool IsAttack { get; set; }
+    public PlayerDataSO PlayerData { get; set; }
 
     private void Start()
     {
-        currentDirection = PlayerDirection.RIGHT;
-        ImageChange();
+        currentDirection = PlayerDirection.UP;
+        ImageChange(PlayerDirection.RIGHT);
         SetState(new Idle_State(), PlayerState.Idle);
     }
 
@@ -57,54 +43,65 @@ public class Player : MonoBehaviour
 
     private void InputHandler()
     {
-        if(Input.GetKey(KeyCode.RightArrow))
+        if(currentAnimator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
         {
-            currentDirection = PlayerDirection.RIGHT;
-            ImageChange();
+            return;
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            SetState(new Attack_State(), PlayerState.Attack);
+        }
+        else if (Input.GetKey(KeyCode.RightArrow))
+        {
+            ImageChange(PlayerDirection.RIGHT);
             SetState(new Walk_State(), PlayerState.Walk);
         }
-        else if(Input.GetKey(KeyCode.LeftArrow))
+        else if (Input.GetKey(KeyCode.LeftArrow))
         {
-            currentDirection = PlayerDirection.LEFT;
-            ImageChange();
+            ImageChange(PlayerDirection.LEFT);
             SetState(new Walk_State(), PlayerState.Walk);
         }
         else if (Input.GetKey(KeyCode.DownArrow))
         {
-            currentDirection = PlayerDirection.DOWN;
-            ImageChange();
+            ImageChange(PlayerDirection.DOWN);
             SetState(new Walk_State(), PlayerState.Walk);
         }
         else if (Input.GetKey(KeyCode.UpArrow))
         {
-            currentDirection = PlayerDirection.UP;
-            ImageChange();
+            ImageChange(PlayerDirection.UP);
             SetState(new Walk_State(), PlayerState.Walk);
         }
         else
         {
-            currentDirection = PlayerDirection.IDLE;
             SetState(new Idle_State(), PlayerState.Idle);
         }
     }
 
     public void AnimatorChange(string temp)
     {
-        if(temp == "Attack")
+        if (temp == "Attack")
         {
-            currentAnimator.SetTrigger("temp");
+            currentAnimator.SetTrigger(temp);
             return;
         }
 
         currentAnimator.SetBool("IsWalk", false);
         currentAnimator.SetBool("IsIdle", false);
 
-        currentAnimator.SetBool(temp, true);
+        currentAnimator.SetBool("Is" + temp, true);
     }
 
-    public void ImageChange()
+    public void ImageChange(PlayerDirection direction)
     {
-        for(int i = 0; i < playerImage.Count; ++i)
+        if (currentDirection == direction)
+        {
+            return;
+        }
+
+        currentDirection = direction;
+
+        for (int i = 0; i < playerImage.Count; ++i)
         {
             playerImage[i].SetActive(false);
         }
