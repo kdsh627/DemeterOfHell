@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 
-public class SoundManager : MonoBehaviour
+public class SoundOption : MonoBehaviour
 {
     public AudioMixer audioMixer;
     public Slider bgmSlider; // 옵션창 BGM 슬라이더
@@ -56,5 +56,4 @@ public class SoundManager : MonoBehaviour
         audioMixer.SetFloat("EffectVolume", Mathf.Log10(volume) * 20);
         PlayerPrefs.SetFloat("EffectVolume", volume);
     }
-
 }

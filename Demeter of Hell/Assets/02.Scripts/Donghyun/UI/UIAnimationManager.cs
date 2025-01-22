@@ -6,7 +6,7 @@ using System.Collections;
 namespace Donghyun.UI.Animation
 {
     [Serializable]
-    public class UIInfomation
+    public struct UIInfomation
     {
         public RectTransform rectTransform;
         public float startPosY, endPosY;
