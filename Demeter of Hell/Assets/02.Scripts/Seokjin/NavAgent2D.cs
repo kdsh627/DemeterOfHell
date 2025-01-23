@@ -5,11 +5,11 @@ using UnityEngine.U2D;
 public class NavAgent2D : MonsterController
 {
     public NavMeshAgent agent;
-    public Transform worldTreePosition;
+    Transform worldTreePosition;
     public Transform target;
     public Animator anim;
 
-    SpriteRenderer sprite;
+    public SpriteRenderer sprite;
 
     private void Awake()
     {
@@ -19,15 +19,18 @@ public class NavAgent2D : MonsterController
         anim = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
         //시작 시 첫 목표는 세계수
-        target = worldTreePosition;
+        //worldTreePosition = 
+        
+        
+        //target = worldTreePosition;
     }
 
     public void Update()
     {
-        agent.SetDestination(target.position);
+        //agent.SetDestination(target.position);
 
 
-        sprite.flipX = transform.position.x > target.position.x;
+        //sprite.flipX = transform.position.x > target.position.x;
     }
 
     

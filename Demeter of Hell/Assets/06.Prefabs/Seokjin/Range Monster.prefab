@@ -226,8 +226,8 @@ MonoBehaviour:
   attackDelay: 0
   currentCooltime: 0
   agent: {fileID: 0}
-  worldTreePosition: {fileID: 0}
   target: {fileID: 0}
   anim: {fileID: 0}
-  projectilePrefab: {fileID: 0}
+  sprite: {fileID: 0}
+  projectilePrefab: {fileID: 1458140821295456385, guid: 4ed2cca906ebe0c4ab4e5621c1d2c316, type: 3}
   attackRange: 10

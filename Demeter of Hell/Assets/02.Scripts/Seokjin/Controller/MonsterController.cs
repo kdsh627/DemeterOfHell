@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using static UnityEngine.GraphicsBuffer;
 
 public class MonsterController : CreatureController
@@ -16,7 +17,7 @@ public class MonsterController : CreatureController
         //sprite = GetComponent<SpriteRenderer>();
     }
 
-
+    
 
     // Update is called once per frame
     void Update()
@@ -29,17 +30,8 @@ public class MonsterController : CreatureController
         
     }
 
-    //public void DirectionMonster(float target, float baseobj)//몬스터가 바라보는 방향에 따라 스프라이트를 뒤집음
-    //{
-    //    if(target<baseobj)
-    //    {
-    //        animator.SetFloat("Direction", -1);
-            
-    //    }
-    //    else
-    //    {
-    //        animator.SetFloat("Direction", 1);
-    //    }
-    //}
+    protected virtual void Drop()
+    {
 
+    }
 }

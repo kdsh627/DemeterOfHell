@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
+using UnityEngine.U2D;
 
 public class MonsterAttackController : NavAgent2D
 {
@@ -22,7 +23,7 @@ public class MonsterAttackController : NavAgent2D
     public void Update()
     {
         base.Update();
-
+        
         //가장 가까운 타겟 찾기
         Transform closestTarget = GetClosestTarget();
         if (closestTarget != null)
@@ -56,12 +57,16 @@ public class MonsterAttackController : NavAgent2D
             }
             AfterAttack();
         }
+        agent.SetDestination(target.position);
 
+
+        sprite.flipX = transform.position.x > target.position.x;
         //쿨타임 감소
         if (currentCooltime > 0)
         {
             currentCooltime -= Time.deltaTime;
         }
+        
         
     }
 
