@@ -45,5 +45,8 @@ TagManager:
   - name: RoundTIle
     uniqueID: 3008077961
     locked: 0
+  - name: Player
+    uniqueID: 3265949913
+    locked: 0
   m_RenderingLayers:
   - Default
