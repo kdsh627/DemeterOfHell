@@ -169,6 +169,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -647,7 +660,28 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      CL_Buildings_winter_0: 2899979276022711829
+      CL_Buildings_winter_1: 7900585484505735871
+      CL_Buildings_winter_10: -4780693906705506408
+      CL_Buildings_winter_11: -20100594106447964
+      CL_Buildings_winter_12: -6745836295946750242
+      CL_Buildings_winter_13: -8605372515663435300
+      CL_Buildings_winter_14: 1297856344842589255
+      CL_Buildings_winter_15: -4629125641920795403
+      CL_Buildings_winter_16: 1800202803296613619
+      CL_Buildings_winter_17: -7420546480904240801
+      CL_Buildings_winter_18: 4630444224958249529
+      CL_Buildings_winter_19: 947292205815981931
+      CL_Buildings_winter_2: -1492500773436201399
+      CL_Buildings_winter_20: -5733440672396102424
+      CL_Buildings_winter_3: -635368719509706218
+      CL_Buildings_winter_4: -2280258426218757341
+      CL_Buildings_winter_5: 6452528686158407913
+      CL_Buildings_winter_6: -454775402083380957
+      CL_Buildings_winter_7: 5688810984098702385
+      CL_Buildings_winter_8: 8042180503074100278
+      CL_Buildings_winter_9: 6235538965269670070
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

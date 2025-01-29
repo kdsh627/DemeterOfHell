@@ -328,6 +328,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -1972,7 +1985,81 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      CL_Buildings_0: 5644106890292011104
+      CL_Buildings_1: -3149446483277866193
+      CL_Buildings_10: 7870285661166041759
+      CL_Buildings_11: -106936630064381017
+      CL_Buildings_12: 524928430488947157
+      CL_Buildings_13: -2684391460007335149
+      CL_Buildings_14: 8577235310777342949
+      CL_Buildings_15: -373411447219754683
+      CL_Buildings_16: -6200982507472767633
+      CL_Buildings_17: -1692759124234926646
+      CL_Buildings_18: -5283144106114577493
+      CL_Buildings_19: -3607135035218092732
+      CL_Buildings_2: -2736704749262602916
+      CL_Buildings_20: 8818989952002732645
+      CL_Buildings_21: -2304442206407557774
+      CL_Buildings_22: 4965806547730590825
+      CL_Buildings_23: -1739880876112718334
+      CL_Buildings_24: 2733333953399238113
+      CL_Buildings_25: -8655143199823618893
+      CL_Buildings_26: 3085290868344305545
+      CL_Buildings_27: -5483602974170559475
+      CL_Buildings_28: -7316504528829873834
+      CL_Buildings_29: -5274833840497231946
+      CL_Buildings_3: 6066187685456290173
+      CL_Buildings_30: -4847400357040009248
+      CL_Buildings_31: 5064123940063524016
+      CL_Buildings_32: 7930056344908813138
+      CL_Buildings_33: 109956487434659988
+      CL_Buildings_34: -7879239628691442497
+      CL_Buildings_35: -3495748388255959289
+      CL_Buildings_36: 6463176211002520389
+      CL_Buildings_37: -159702509392160032
+      CL_Buildings_38: 8318517494153349253
+      CL_Buildings_39: 1243875286843858077
+      CL_Buildings_4: -5434404088987276427
+      CL_Buildings_40: -9049675071852986392
+      CL_Buildings_41: 4523681998393989455
+      CL_Buildings_42: 4811267168523876785
+      CL_Buildings_43: -418841928566028626
+      CL_Buildings_44: 3112259131920756248
+      CL_Buildings_45: 5920599335766675136
+      CL_Buildings_46: -4371224885289500376
+      CL_Buildings_47: 7635438867157782627
+      CL_Buildings_48: -832916757466744791
+      CL_Buildings_49: -5071029194662115703
+      CL_Buildings_5: -6889092357301177704
+      CL_Buildings_50: -7763287560610333181
+      CL_Buildings_51: 1845266777014338695
+      CL_Buildings_52: 3829934836558211841
+      CL_Buildings_53: -4976439821749594926
+      CL_Buildings_54: -1947548586153706643
+      CL_Buildings_55: 7516788589483678019
+      CL_Buildings_56: -7486720753278271964
+      CL_Buildings_57: 3611514111017914870
+      CL_Buildings_58: -4587741826246768823
+      CL_Buildings_59: 8448718189174272696
+      CL_Buildings_6: 4559921813186006859
+      CL_Buildings_60: 2007826268084005461
+      CL_Buildings_61: -4377711708091447285
+      CL_Buildings_62: 549558044976937472
+      CL_Buildings_63: -1286066157004548459
+      CL_Buildings_64: 898863713903314740
+      CL_Buildings_65: 5225417821055851645
+      CL_Buildings_66: 4861309758505492498
+      CL_Buildings_67: -6794056575291023423
+      CL_Buildings_68: -4699779722166874850
+      CL_Buildings_69: -6113862342984272987
+      CL_Buildings_7: 2161341963323795400
+      CL_Buildings_70: -5065063995211390455
+      CL_Buildings_71: 5680990782004421320
+      CL_Buildings_72: -8632239602096243371
+      CL_Buildings_73: -6206701414393842078
+      CL_Buildings_8: 5175272878849091465
+      CL_Buildings_9: -4201882447396829798
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

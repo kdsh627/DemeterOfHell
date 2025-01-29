@@ -199,6 +199,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -897,7 +910,38 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      CL_MainLev_winter_0: -3422381468097936938
+      CL_MainLev_winter_1: -1418606946499731207
+      CL_MainLev_winter_10: -239603423026330387
+      CL_MainLev_winter_11: -1965488354421729239
+      CL_MainLev_winter_12: 4951984007318777110
+      CL_MainLev_winter_13: 4510760616922283153
+      CL_MainLev_winter_14: -7004635150740769686
+      CL_MainLev_winter_15: 2363060063066675874
+      CL_MainLev_winter_16: 4066162761335203958
+      CL_MainLev_winter_17: -1448653404576968219
+      CL_MainLev_winter_18: 6541914441443044438
+      CL_MainLev_winter_19: -7503484955097314336
+      CL_MainLev_winter_2: -8537132383559593583
+      CL_MainLev_winter_20: 8806656001593651121
+      CL_MainLev_winter_21: 7170397657990999376
+      CL_MainLev_winter_22: -4546654642976260662
+      CL_MainLev_winter_23: 3587984880812635506
+      CL_MainLev_winter_24: 7277412264744419679
+      CL_MainLev_winter_25: -7249016480735029702
+      CL_MainLev_winter_26: -6489353167001988633
+      CL_MainLev_winter_27: 3430647403742270053
+      CL_MainLev_winter_28: -4931211002104312717
+      CL_MainLev_winter_29: -3452888612485656200
+      CL_MainLev_winter_3: -2271377505186336503
+      CL_MainLev_winter_30: -2862074739250922137
+      CL_MainLev_winter_4: -8841778660922749852
+      CL_MainLev_winter_5: 6313839810222533038
+      CL_MainLev_winter_6: 1393818912630325884
+      CL_MainLev_winter_7: 6460149848022503188
+      CL_MainLev_winter_8: -8896638055450747424
+      CL_MainLev_winter_9: 8658505100299344219
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

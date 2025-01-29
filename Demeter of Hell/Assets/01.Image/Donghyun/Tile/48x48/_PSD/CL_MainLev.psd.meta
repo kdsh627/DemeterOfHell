@@ -220,6 +220,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -1072,7 +1085,45 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      CL_MainLev_0: 4155418954517446156
+      CL_MainLev_1: -3752024781351200393
+      CL_MainLev_10: -4638798850637314445
+      CL_MainLev_11: 269434271134432876
+      CL_MainLev_12: 7263212567493508016
+      CL_MainLev_13: 8841249940503463476
+      CL_MainLev_14: 480444476270763230
+      CL_MainLev_15: -1049774006695053232
+      CL_MainLev_16: 3124143992574425509
+      CL_MainLev_17: -2541538703905961852
+      CL_MainLev_18: -8429100141673259678
+      CL_MainLev_19: -7838533227454257344
+      CL_MainLev_2: 5606651064034345997
+      CL_MainLev_20: -2236916602792495116
+      CL_MainLev_21: 2450576016822808021
+      CL_MainLev_22: 1658694039239849400
+      CL_MainLev_23: 4669308564851575323
+      CL_MainLev_24: -2581933578881566058
+      CL_MainLev_25: -3676237417107408323
+      CL_MainLev_26: -7374079133280305530
+      CL_MainLev_27: 8698373118812582882
+      CL_MainLev_28: -1181441019772321909
+      CL_MainLev_29: 6131581500992998133
+      CL_MainLev_3: -5833295323315588154
+      CL_MainLev_30: 1783268323909641753
+      CL_MainLev_31: -2906434049782334860
+      CL_MainLev_32: -5189553565896063422
+      CL_MainLev_33: 1006835156831781364
+      CL_MainLev_34: 4830058969517166481
+      CL_MainLev_35: -5460632054612001425
+      CL_MainLev_36: -5328171203657706474
+      CL_MainLev_37: 8584844927003580979
+      CL_MainLev_4: -5719786728501776754
+      CL_MainLev_5: 7290508195839701307
+      CL_MainLev_6: -8796072458843168867
+      CL_MainLev_7: 7767769848748516587
+      CL_MainLev_8: 1761443573973559276
+      CL_MainLev_9: -8394210213895288923
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -418,6 +418,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -2722,7 +2735,111 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      CL_Crops_winter_0: -9031480058079254876
+      CL_Crops_winter_1: 5497489249495272127
+      CL_Crops_winter_10: -8793053303687354698
+      CL_Crops_winter_100: 6714850374170990194
+      CL_Crops_winter_101: -4364316326603186407
+      CL_Crops_winter_102: -8194086390822432571
+      CL_Crops_winter_103: 785146802305268778
+      CL_Crops_winter_11: -3276989322374164899
+      CL_Crops_winter_12: 50274784056770210
+      CL_Crops_winter_13: 1508388289663371391
+      CL_Crops_winter_14: -6085283582942103543
+      CL_Crops_winter_15: -2120876219090598483
+      CL_Crops_winter_16: 3980153520922510463
+      CL_Crops_winter_17: -6966090752260667849
+      CL_Crops_winter_18: -654966450233442242
+      CL_Crops_winter_19: 1784037648021004762
+      CL_Crops_winter_2: -2170048253600842532
+      CL_Crops_winter_20: 3986644690190950190
+      CL_Crops_winter_21: 2937501428618879231
+      CL_Crops_winter_22: 7294569758604690772
+      CL_Crops_winter_23: 646396929471731552
+      CL_Crops_winter_24: -7903794769577555372
+      CL_Crops_winter_25: 416881711988783534
+      CL_Crops_winter_26: 6198233597123291730
+      CL_Crops_winter_27: 4828035337058097114
+      CL_Crops_winter_28: 7034594879188226252
+      CL_Crops_winter_29: -6906797949510881902
+      CL_Crops_winter_3: -2969363666092443430
+      CL_Crops_winter_30: 6126592145961801817
+      CL_Crops_winter_31: 7895399018849368622
+      CL_Crops_winter_32: 5913014885183948645
+      CL_Crops_winter_33: 5401927007275517929
+      CL_Crops_winter_34: 5806483136785887650
+      CL_Crops_winter_35: -6691551110529519336
+      CL_Crops_winter_36: -2888996733704158783
+      CL_Crops_winter_37: -1365689003504823716
+      CL_Crops_winter_38: 1540143316314453103
+      CL_Crops_winter_39: -6801283109754012682
+      CL_Crops_winter_4: -7562856468864476530
+      CL_Crops_winter_40: -673534016783480948
+      CL_Crops_winter_41: 415176770888960073
+      CL_Crops_winter_42: 8304146262801274535
+      CL_Crops_winter_43: 3711922508894444596
+      CL_Crops_winter_44: 4475652605165752260
+      CL_Crops_winter_45: -4959143810775234049
+      CL_Crops_winter_46: 6967116055217840427
+      CL_Crops_winter_47: 5738257148739348421
+      CL_Crops_winter_48: -63720605630184742
+      CL_Crops_winter_49: -389703391129070349
+      CL_Crops_winter_5: 6406174593771923035
+      CL_Crops_winter_50: -2324686978816235030
+      CL_Crops_winter_51: 5804531841070697817
+      CL_Crops_winter_52: 3368905192409225816
+      CL_Crops_winter_53: -4581810903638180097
+      CL_Crops_winter_54: 3112129157242194210
+      CL_Crops_winter_55: 7311608686409808416
+      CL_Crops_winter_56: 4221211394638983436
+      CL_Crops_winter_57: 8728648562267919588
+      CL_Crops_winter_58: 1031892797731039769
+      CL_Crops_winter_59: -5000744703888560533
+      CL_Crops_winter_6: 4038456974189582870
+      CL_Crops_winter_60: 8401121982722386637
+      CL_Crops_winter_61: -8196381077607079345
+      CL_Crops_winter_62: -5976748362903858601
+      CL_Crops_winter_63: -6847575347786227922
+      CL_Crops_winter_64: -5803469736225570796
+      CL_Crops_winter_65: 3596160425762319945
+      CL_Crops_winter_66: -3967347492610896103
+      CL_Crops_winter_67: 1096458167654376905
+      CL_Crops_winter_68: -8200200097204318846
+      CL_Crops_winter_69: -2341048127278635809
+      CL_Crops_winter_7: 2233074668176404250
+      CL_Crops_winter_70: -4063008282110305851
+      CL_Crops_winter_71: -9097680478748120743
+      CL_Crops_winter_72: 5913284663551520138
+      CL_Crops_winter_73: 8988383915372845274
+      CL_Crops_winter_74: -251949423202687503
+      CL_Crops_winter_75: -7465269648604104837
+      CL_Crops_winter_76: 1545766262282738848
+      CL_Crops_winter_77: -7452943245828573915
+      CL_Crops_winter_78: -6288850791772825233
+      CL_Crops_winter_79: -4770797463207534150
+      CL_Crops_winter_8: 6379361477796608760
+      CL_Crops_winter_80: -2376247612345861794
+      CL_Crops_winter_81: 7197774382427798527
+      CL_Crops_winter_82: -6207357337652803032
+      CL_Crops_winter_83: -4095286667996924692
+      CL_Crops_winter_84: -1159617281464775360
+      CL_Crops_winter_85: -27879195893770975
+      CL_Crops_winter_86: 3229835789767889611
+      CL_Crops_winter_87: 1823176340594553561
+      CL_Crops_winter_88: -6626445448854097524
+      CL_Crops_winter_89: 1971015362019285495
+      CL_Crops_winter_9: 1793907840701780434
+      CL_Crops_winter_90: -6337451742079588296
+      CL_Crops_winter_91: -1836324823023398460
+      CL_Crops_winter_92: -1867328627288150841
+      CL_Crops_winter_93: -6030576314806619847
+      CL_Crops_winter_94: -8568872813700480582
+      CL_Crops_winter_95: 3075786549221510674
+      CL_Crops_winter_96: -7689390070606450928
+      CL_Crops_winter_97: -2100700720330454920
+      CL_Crops_winter_98: -9015601584892590862
+      CL_Crops_winter_99: 6287862145912869370
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
