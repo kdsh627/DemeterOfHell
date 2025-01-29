@@ -58,7 +58,7 @@ public class MonsterController : CreatureController
             dropItem = PoolManager.Instance.Pop(dropTable[0]);
             dropItem.transform.position = transform.position;
         }
-        else if(seed<= dropValue && dropValue < ricePlant)
+        else if(seed<= dropValue && dropValue < seed+ricePlant)
         {
             dropItem = PoolManager.Instance.Pop(dropTable[1]);
             dropItem.transform.position = transform.position;

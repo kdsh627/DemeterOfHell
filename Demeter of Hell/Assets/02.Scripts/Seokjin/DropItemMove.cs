@@ -22,7 +22,7 @@ public class DropItemMove : MonoBehaviour
         // 무작위 방향으로 힘 추가
         AddRandomForce();
 
-        StartCoroutine(Aa());
+        StartCoroutine(DelayTime());
     }
 
     private void AddRandomForce()
@@ -34,7 +34,7 @@ public class DropItemMove : MonoBehaviour
         rb.linearVelocity = randomForce; // 속도 설정
     }
 
-    private IEnumerator Aa()
+    private IEnumerator DelayTime()
     {
         yield return new WaitForSeconds(0.5f);
         rb.gravityScale = 0f; // 중력 멈춤
