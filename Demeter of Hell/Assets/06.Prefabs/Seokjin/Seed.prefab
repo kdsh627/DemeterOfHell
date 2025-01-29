@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3451868261794873057}
   - component: {fileID: 4054670386184610096}
   - component: {fileID: 4996801754230491012}
+  - component: {fileID: -5286480878173559726}
   m_Layer: 0
   m_Name: Seed
   m_TagString: Untagged
@@ -162,3 +163,15 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-5286480878173559726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5841927533689879853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 042a03452836ce942b3110cbb338af4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

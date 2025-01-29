@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2045601067636048549}
   - component: {fileID: 4766433398295440468}
   - component: {fileID: 714932254291465962}
+  - component: {fileID: 7218630914365423541}
   m_Layer: 0
   m_Name: Rice Plant
   m_TagString: Untagged
@@ -162,3 +163,15 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &7218630914365423541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3636704533325588106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 042a03452836ce942b3110cbb338af4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

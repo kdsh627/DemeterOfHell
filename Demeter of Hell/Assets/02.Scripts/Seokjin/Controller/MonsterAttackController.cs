@@ -7,11 +7,11 @@ public class MonsterAttackController : NavAgent2D
 {
     public GameObject projectilePrefab; // 투사체 프리팹
     public float attackRange = 10f;     // 공격 범위
-    
-    
-      
+    bool isDead = false;
 
-    
+
+
+
 
     private void Start()
     {
@@ -22,6 +22,7 @@ public class MonsterAttackController : NavAgent2D
 
     public void Update()
     {
+        if (isDead) return;
         base.Update();
         
         //가장 가까운 타겟 찾기
@@ -112,5 +113,24 @@ public class MonsterAttackController : NavAgent2D
         
         currentCooltime = attackCooltime;
     
+    }
+
+    protected override void OnDead()
+    {
+        if (isDead) return;
+        base.OnDead();
+        anim.SetTrigger("Dead");
+        gameObject.GetComponent<Collider2D>().enabled = false;
+        StartCoroutine(DelayTime());
+
+       
+
+    }
+
+    IEnumerator DelayTime()
+    {
+        yield return new WaitForSeconds(1f);
+        PoolManager.Instance.Push(gameObject);
+
     }
 }

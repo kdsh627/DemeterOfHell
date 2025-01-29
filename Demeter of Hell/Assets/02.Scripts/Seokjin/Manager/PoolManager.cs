@@ -96,7 +96,7 @@ public class PoolManager : MonoBehaviour
         {
             CreatePool(prefab);
         }
-
+        
         return _pools[prefab.name].Pop();
     }
 
