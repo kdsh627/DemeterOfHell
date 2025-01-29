@@ -49,19 +49,19 @@ public class MonsterController : CreatureController
         float dropValue = Random.Range(0, dropSum);
 
         GameObject dropItem;
-        Vector3 RandomPosition = Random.insideUnitCircle * dropRadius;
+        
 
 
         if (0<= dropValue && dropValue < seed)
         {
             
             dropItem = PoolManager.Instance.Pop(dropTable[0]);
-            dropItem.transform.position = transform.position+ RandomPosition;
+            dropItem.transform.position = transform.position;
         }
         else if(seed<= dropValue && dropValue < ricePlant)
         {
             dropItem = PoolManager.Instance.Pop(dropTable[1]);
-            dropItem.transform.position = transform.position+ RandomPosition;
+            dropItem.transform.position = transform.position;
 
         }
 
@@ -79,7 +79,7 @@ public class MonsterController : CreatureController
             Drop();
         }
 
-
-        PoolManager.Instance.Push(gameObject);
+        
+        
     }
 }
