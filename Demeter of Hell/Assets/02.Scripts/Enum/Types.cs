@@ -24,7 +24,10 @@ namespace Types
 
     public enum PlantType //식물 종류
     {
-        Rice
+        Rice,
+        Attack,
+        PowerBuff,
+        HPBuff
     }
 }
 

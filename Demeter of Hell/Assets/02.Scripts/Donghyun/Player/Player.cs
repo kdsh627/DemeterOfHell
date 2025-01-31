@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private List<GameObject> playerImage;
     [SerializeField] private List<Animator> animator;
+    [SerializeField] private Item item;
     [SerializeField] private float speed;
     [SerializeField] private PlayerDataSO playerData; //플레이어 데이터
 
@@ -24,6 +25,9 @@ public class Player : MonoBehaviour
         currentDirection = PlayerDirection.UP;
         ImageChange(PlayerDirection.RIGHT);
         SetState(new Idle_State(), PlayerState.Idle);
+        item = GetComponent<Item>();
+        item.Data.UpdateSeed(0);
+        item.Data.UpdateRice(0);
     }
 
     private void Update()
