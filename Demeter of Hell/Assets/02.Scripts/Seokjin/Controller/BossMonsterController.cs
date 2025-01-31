@@ -16,10 +16,10 @@ public class BossMonsterController : MonsterAttackController
     protected override void Attack()
     {
         anim.SetTrigger("Idle");
-        index = Random.Range(0, 2); //패턴의 수 만큼 넣어주세요
+        index = Random.Range(0, 3); //패턴의 수 만큼 넣어주세요
 
         //디버그용
-        index = 2;
+        
 
         Debug.Log("attack 들어옴");
         anim.SetInteger("Pattern Index", index);

@@ -33,7 +33,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.62, y: -4.33, z: -0.009896006}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -162,7 +162,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 7
 --- !u!61 &4811694935782602751
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -222,7 +222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  attackCooltime: 10
+  attackCooltime: 5
   attackDelay: 0
   currentCooltime: 0
   dropTable: []
@@ -236,7 +236,7 @@ MonoBehaviour:
   anim: {fileID: 0}
   sprite: {fileID: 0}
   projectilePrefab: {fileID: 1458140821295456385, guid: a7f035967abb7a648998cf49c3fc5129, type: 3}
-  attackRange: 10
+  attackRange: 1
   monsters:
   - {fileID: 4734820251503001246, guid: 9ab8db7563194a84987f0f82a7fbecdc, type: 3}
   - {fileID: 4734820251503001246, guid: dae9c4af1e6266b40a236d42e7f65d51, type: 3}

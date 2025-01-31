@@ -20,7 +20,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: d64f4922034bdba4eaa023071d7d65b0, type: 2}
+  m_Motion: {fileID: 7400000, guid: 68634bd86b1dcf149b9bec13cc74923f, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -48,7 +48,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: c5db4b00ae05c0f478bdd7f2df8e0c22, type: 2}
+  m_Motion: {fileID: 7400000, guid: 45e432d5f58a9fe4b9952dddb6b0ab44, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -135,7 +135,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 3033f5d865e8aed438d9f700c0e04687, type: 2}
+  m_Motion: {fileID: 7400000, guid: 952f5b41472742c4b8101d93dae6effc, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -186,7 +186,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 8a987ceb0ec7e4346a85c04ec6a99450, type: 2}
+  m_Motion: {fileID: 7400000, guid: 907fd2eb712263b438c5c1f23b92fc59, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -214,7 +214,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 6d5df17d4662c04459e2fc868323ee9a, type: 2}
+  m_Motion: {fileID: 7400000, guid: 952f5b41472742c4b8101d93dae6effc, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -226,7 +226,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Mushroom Range Animator
+  m_Name: 2F Range Monster Animator
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Attack
