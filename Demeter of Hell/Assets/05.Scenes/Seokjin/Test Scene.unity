@@ -400,6 +400,79 @@ Transform:
   m_Children: []
   m_Father: {fileID: 240758058}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &432741541
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 781364641918508641, guid: c64770f0ba792a14cab44165f2cebaa0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.0396023
+      objectReference: {fileID: 0}
+    - target: {fileID: 781364641918508641, guid: c64770f0ba792a14cab44165f2cebaa0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.2191353
+      objectReference: {fileID: 0}
+    - target: {fileID: 781364641918508641, guid: c64770f0ba792a14cab44165f2cebaa0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.009896006
+      objectReference: {fileID: 0}
+    - target: {fileID: 781364641918508641, guid: c64770f0ba792a14cab44165f2cebaa0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 781364641918508641, guid: c64770f0ba792a14cab44165f2cebaa0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 781364641918508641, guid: c64770f0ba792a14cab44165f2cebaa0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 781364641918508641, guid: c64770f0ba792a14cab44165f2cebaa0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 781364641918508641, guid: c64770f0ba792a14cab44165f2cebaa0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 781364641918508641, guid: c64770f0ba792a14cab44165f2cebaa0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 781364641918508641, guid: c64770f0ba792a14cab44165f2cebaa0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4811694935782602751, guid: c64770f0ba792a14cab44165f2cebaa0, type: 3}
+      propertyPath: m_Size.x
+      value: 0.85295916
+      objectReference: {fileID: 0}
+    - target: {fileID: 4811694935782602751, guid: c64770f0ba792a14cab44165f2cebaa0, type: 3}
+      propertyPath: m_Size.y
+      value: 1.0537124
+      objectReference: {fileID: 0}
+    - target: {fileID: 4811694935782602751, guid: c64770f0ba792a14cab44165f2cebaa0, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.015987873
+      objectReference: {fileID: 0}
+    - target: {fileID: 4811694935782602751, guid: c64770f0ba792a14cab44165f2cebaa0, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.076336145
+      objectReference: {fileID: 0}
+    - target: {fileID: 7898626916220795507, guid: c64770f0ba792a14cab44165f2cebaa0, type: 3}
+      propertyPath: m_Name
+      value: 1F Boss Monster
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c64770f0ba792a14cab44165f2cebaa0, type: 3}
 --- !u!1 &442165033
 GameObject:
   m_ObjectHideFlags: 0
@@ -1185,6 +1258,7 @@ GameObject:
   - component: {fileID: 1439024767}
   - component: {fileID: 1439024766}
   - component: {fileID: 1439024765}
+  - component: {fileID: 1439024769}
   m_Layer: 0
   m_Name: Walkable
   m_TagString: Untagged
@@ -2251,6 +2325,28 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!95 &1439024769
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1439024763}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7e1c750361acd5a449cfc51345220e5a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1485353918
 GameObject:
   m_ObjectHideFlags: 0
@@ -2557,6 +2653,7 @@ GameObject:
   - component: {fileID: 1659652097}
   - component: {fileID: 1659652096}
   - component: {fileID: 1659652095}
+  - component: {fileID: 1659652099}
   m_Layer: 0
   m_Name: Obstacle
   m_TagString: Untagged
@@ -2817,6 +2914,28 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!95 &1659652099
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1659652093}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7e1c750361acd5a449cfc51345220e5a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1795354366 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4734820251503001246, guid: dae9c4af1e6266b40a236d42e7f65d51, type: 3}
@@ -2850,6 +2969,7 @@ MonoBehaviour:
   sprite: {fileID: 0}
   projectilePrefab: {fileID: 0}
   attackRange: 1
+  monsters: []
 --- !u!1 &1817408892
 GameObject:
   m_ObjectHideFlags: 0
@@ -2978,3 +3098,4 @@ SceneRoots:
   - {fileID: 1485353920}
   - {fileID: 240758058}
   - {fileID: 1126795993}
+  - {fileID: 432741541}
