@@ -9,4 +9,6 @@ public class PlayerDataSO : ScriptableObject
     public float RangedAttackPower; //원거거리 공격력
     public float MeleeAttackSpeed; //근거리 공격속도
     public float RangedAttackSpeed; //원거리 공격속도
+
+
 }
