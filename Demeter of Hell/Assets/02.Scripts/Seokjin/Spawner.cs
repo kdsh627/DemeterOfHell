@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Threading;
 using UnityEngine;
 
@@ -10,6 +11,7 @@ public class Spawner : MonoBehaviour
     public GameObject[] monsters;
     public float spawnRadius = 15f;
 
+    public bool isWaveStart = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -24,6 +26,7 @@ public class Spawner : MonoBehaviour
         //if (!GameManager.instance.isLive)
         //        return;
 
+        if (isWaveStart == false ) return;
 
         timer += Time.deltaTime;
 
@@ -51,5 +54,16 @@ public class Spawner : MonoBehaviour
     {
         monsterCount = 0;
         maxMonsterCount = _maxMonsterCount;
+        //체력, 공격력 받기
+        StartCoroutine(StartWave(30f));
+    }
+
+    
+
+    public IEnumerator StartWave(float time)
+    {
+        isWaveStart = true;
+        yield return new WaitForSeconds(time);
+        isWaveStart = false;
     }
 }
