@@ -46,8 +46,12 @@ public class Spawner : MonoBehaviour
 
 
         GameObject monster = PoolManager.Instance.Pop(monsters[Random.Range(0,monsters.Length)]);
-        monster.transform.position = spawnPoint[Random.Range(1,spawnPoint.Length)].position + RandomPosition;
+        //데미지 설정
+        MonsterController mc = monster.GetComponent<MonsterController>();
+        mc.MaxHp = 100;
+        mc.attackDamage = 10; 
         
+        monster.transform.position = spawnPoint[Random.Range(1,spawnPoint.Length)].position + RandomPosition;
     }
 
     public void NewRound(int _maxMonsterCount)

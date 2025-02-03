@@ -18,7 +18,7 @@ public class MonsterController : CreatureController
     public float nothing;
     //드랍 되는 아이템 범위
     public float dropRadius = 3f;
-
+    public float attackDamage;
 
 
 
