@@ -10,6 +10,7 @@ public class MonsterController : CreatureController
     public float attackDelay;
     public float currentCooltime;
     public GameObject[] dropTable;
+    public GameObject experience;
     //드랍 주사위 돌리는 수
     public float dropCount;
     //아이템의 드랍 가중치
@@ -65,7 +66,8 @@ public class MonsterController : CreatureController
 
         }
 
-        
+        dropItem = PoolManager.Instance.Pop(experience);
+        dropItem.transform.position = transform.position;
 
 
     }

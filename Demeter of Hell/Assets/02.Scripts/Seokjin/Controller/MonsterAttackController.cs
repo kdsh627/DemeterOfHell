@@ -21,11 +21,40 @@ public class MonsterAttackController : NavAgent2D
         attackCollider.enabled = false; // 초기에는 비활성화
 
     }
-
+    public void OnEnable()
+    {
+        GetComponent<BoxCollider2D>().enabled = true;
+        if (1 <= GameManager.Instance.CurrentWave && GameManager.Instance.CurrentWave < 5)
+        {
+            MaxHp = 1;
+            Hp = MaxHp;
+            attackDamage = 1;
+        }
+        else if(5 <= GameManager.Instance.CurrentWave && GameManager.Instance.CurrentWave < 10)
+        {
+            MaxHp = 5;
+            Hp = MaxHp;
+            attackDamage = 2;
+        }
+        else if(10 == GameManager.Instance.CurrentWave)
+        {
+            MaxHp = 9;
+            Hp = MaxHp;
+            attackDamage = 3;
+        }
+        
+    }
     public void Update()
     {
-        if (isDead) return;
         base.Update();
+        if (isDead)
+        {
+            agent.isStopped = true;
+            return;
+        }
+        else
+            agent.isStopped = false;
+         
         
         //가장 가까운 타겟 찾기
         Transform closestTarget = GetClosestTarget();
@@ -119,18 +148,19 @@ public class MonsterAttackController : NavAgent2D
 
     protected override void OnDead()
     {
-        if (isDead) return;
+        
         base.OnDead();
         anim.SetTrigger("Dead");
         gameObject.GetComponent<Collider2D>().enabled = false;
         StartCoroutine(DelayTime());
-
+       // if()
        
 
     }
  
     IEnumerator DelayTime()
     {
+        isDead = true;
         yield return new WaitForSeconds(1f);
         PoolManager.Instance.Push(gameObject);
 
@@ -153,7 +183,7 @@ public class MonsterAttackController : NavAgent2D
         {
             MonsterController mc = collision.gameObject.GetComponent<MonsterController>();
 
-            mc.OnDamaged(100);
+            mc.OnDamaged(attackDamage);
 
             Debug.Log("hit");
         }

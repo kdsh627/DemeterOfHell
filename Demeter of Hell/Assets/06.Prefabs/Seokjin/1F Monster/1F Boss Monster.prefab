@@ -79,8 +79,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1320286989
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 1178165879, guid: 6ddce99c65fa81648858724bd6883818, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -227,11 +227,13 @@ MonoBehaviour:
   attackDelay: 0
   currentCooltime: 0
   dropTable: []
+  experience: {fileID: 5841927533689879853, guid: 4b609c6e25e1495439d53932982332ee, type: 3}
   dropCount: 0
   seed: 0
   ricePlant: 0
   nothing: 0
   dropRadius: 3
+  attackDamage: 0
   agent: {fileID: 0}
   target: {fileID: 0}
   anim: {fileID: 0}
@@ -240,8 +242,8 @@ MonoBehaviour:
   attackRange: 1
   attackCollider: {fileID: 0}
   monsters:
-  - {fileID: 4734820251503001246, guid: 9ab8db7563194a84987f0f82a7fbecdc, type: 3}
-  - {fileID: 4734820251503001246, guid: dae9c4af1e6266b40a236d42e7f65d51, type: 3}
+  - {fileID: 4734820251503001246, guid: 00181906910a9dd489f484f6a302ee86, type: 3}
+  - {fileID: 4734820251503001246, guid: 2d1faa84fbea9fe4caa38a4b9840e7d0, type: 3}
 --- !u!58 &7332879839993562655
 CircleCollider2D:
   m_ObjectHideFlags: 0

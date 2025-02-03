@@ -12,6 +12,7 @@ public class Rice : CreatureController
         Production = riceData.Production;
         Hp = riceData.Hp;
         MaxHp = riceData.Hp;
+        TargetManager.Instance.targets.Add(transform);
     }
 
     public void UpdateProduction(int value)
@@ -23,6 +24,7 @@ public class Rice : CreatureController
     protected override void OnDead()
     {
         //임시로 파괴
+        TargetManager.Instance.targets.Remove(transform);
         Destroy(gameObject);
     }
 }

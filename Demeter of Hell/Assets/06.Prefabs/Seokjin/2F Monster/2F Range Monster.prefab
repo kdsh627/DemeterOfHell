@@ -79,8 +79,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1320286989
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -3652676412848291748, guid: 6d7cd4f7505dc674c891ca8946cfd98b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -229,11 +229,13 @@ MonoBehaviour:
   dropTable:
   - {fileID: 5841927533689879853, guid: 3f2f4acbba06e47499032c512f423420, type: 3}
   - {fileID: 3636704533325588106, guid: f70fe2b80c006c84e929941d65817bf1, type: 3}
+  experience: {fileID: 5841927533689879853, guid: 4b609c6e25e1495439d53932982332ee, type: 3}
   dropCount: 1
   seed: 1
   ricePlant: 1
   nothing: 0
   dropRadius: 3
+  attackDamage: 0
   agent: {fileID: 0}
   target: {fileID: 0}
   anim: {fileID: 0}
