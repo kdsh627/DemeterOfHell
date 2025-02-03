@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: RiceData
   m_EditorClassIdentifier: 
   PlantType: 0
-  Hp: 0
+  Hp: 10
   Damage: 0
   DamageBuff: 0
   HpBuff: 0
+  Production: 1

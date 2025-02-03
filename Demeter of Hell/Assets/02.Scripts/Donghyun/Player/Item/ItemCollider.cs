@@ -6,12 +6,17 @@ public class ItemCollider : MonoBehaviour
     {
         if (collision.CompareTag("Seed"))
         {
-            gameObject.transform.parent.GetComponent<Item>().Data.UpdateSeed(1);
+            gameObject.transform.parent.GetComponent<Player>().ItemData.UpdateSeed(1);
             Destroy(collision.gameObject);
         }
         else if (collision.CompareTag("Rice"))
         {
-            gameObject.transform.parent.GetComponent<Item>().Data.UpdateRice(1);
+            gameObject.transform.parent.GetComponent<Player>().ItemData.UpdateRice(1);
+            Destroy(collision.gameObject);
+        }
+        else if (collision.CompareTag("Experience"))
+        {
+            gameObject.transform.parent.GetComponent<Player>().PlayerData.UpdateExperience(1);
             Destroy(collision.gameObject);
         }
     }

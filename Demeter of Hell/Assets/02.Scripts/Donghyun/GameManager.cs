@@ -9,16 +9,24 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int maxRound;
     [SerializeField] private float waveTimeLimit;
     [SerializeField] private int maxScene;
+    [SerializeField] private ItemDataSO itemData;
+    [SerializeField] private PlayerDataSO playerData;
+    [SerializeField] private TreeDataSO treeData;
+
 
     private int currentScene;
     private int currentRound;
     private int currentWave;
     private float currentTime;
     private bool beginWave;
+    private int monstersAmount;
 
     private static GameManager instance;
 
     public bool BeginWave => beginWave;
+    public ItemDataSO Item => itemData;
+    public int CurrentWave => currentWave;
+    public int MonstersAmount => monstersAmount;
 
     public static GameManager Instance
     {
@@ -31,6 +39,8 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        monstersAmount = 0; 
+
         //현재 씬 번호
         currentScene = SceneManager.GetActiveScene().buildIndex;
 
@@ -61,7 +71,7 @@ public class GameManager : MonoBehaviour
             TimeUpdate();
         }
     }
-    
+
     //씬 변경
     public void ChangeScene()
     {
@@ -80,7 +90,6 @@ public class GameManager : MonoBehaviour
         currentRound = currentScene;
         beginWave = false;
         UIManager.Instance.WaveUIUpdate(currentWave, maxWave);
-
     }
 
     //웨이브 시작
@@ -97,6 +106,8 @@ public class GameManager : MonoBehaviour
         beginWave = false;
         currentWave += 1;
 
+        PlantManager.Instance.HarvestRice(); //수확
+
         //해당 라운드 씬 종료
         if(currentWave >= maxWave)
         {
@@ -106,6 +117,16 @@ public class GameManager : MonoBehaviour
         {
             UIManager.Instance.WaveUIUpdate(currentWave, maxWave);
         }
+    }
+
+    public void GameOver()
+    {
+        treeData.Init();
+        itemData.Init();
+        playerData.Init();
+
+        currentScene = 0;
+        ChangeScene();
     }
 
     //타이머 업데이트
@@ -122,4 +143,5 @@ public class GameManager : MonoBehaviour
         }
         UIManager.Instance.TimerUIUpdate(currentTime);
     }
+
 }

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using Types;
 
 public class TileHighlighter : MonoBehaviour
 {

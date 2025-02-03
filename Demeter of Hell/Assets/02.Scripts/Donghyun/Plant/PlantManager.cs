@@ -2,6 +2,7 @@ using Donghyun.UI.Animation;
 using UnityEngine;
 using Types;
 using System;
+using Unity.VisualScripting;
 
 [Serializable]
 public struct PlantInfo
@@ -11,7 +12,6 @@ public struct PlantInfo
     public GameObject plant;
 }
 
-
 public class PlantManager : MonoBehaviour
 {
     [SerializeField] private GameObject plantGroup;
@@ -20,7 +20,6 @@ public class PlantManager : MonoBehaviour
     [SerializeField] private int maxAttackValue;
     [SerializeField] private int maxPowerBuffValue;
     [SerializeField] private int maxHPBuffValue;
-
 
     private PlantType currentType;
     private static PlantManager instance;
@@ -86,5 +85,21 @@ public class PlantManager : MonoBehaviour
 
             plants[(int)currentType].count++;
         }
+    }
+
+    //벼 수확
+    public void HarvestRice()
+    {
+        GameManager.Instance.Item.UpdateRice(plants[(int)PlantType.Rice].count * Rice.Production);
+    }
+
+    public void ActivateAttackBuff()
+    {
+        
+    }
+
+    public void ActivateHpBuff()
+    {
+        
     }
 }
