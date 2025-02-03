@@ -12,11 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4d0f02be0dcddd468f09bd7be0a14fe, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
-  HP: 0
-  RgenerativePower: 0
-  MeleeAttackPower: 0
+  Hp: 10
+  Level: 1
+  ExperienceAmount: 10
+  CurrentExperienceAmount: 2
+  RegenerativePower: 0
+  MeleeAttackPower: 1
   RangedAttackPower: 0
-  MeleeAttackSpeed: 0
-  RangedAttackSpeed: 0
-  RiceValue: 0
-  SeedValue: 0

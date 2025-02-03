@@ -8,6 +8,7 @@ TagManager:
   - Monster
   - Rice
   - Seed
+  - Experience
   layers:
   - Default
   - TransparentFX
@@ -56,6 +57,9 @@ TagManager:
     locked: 0
   - name: Plant
     uniqueID: 4015065041
+    locked: 0
+  - name: Tree
+    uniqueID: 1697785075
     locked: 0
   m_RenderingLayers:
   - Default

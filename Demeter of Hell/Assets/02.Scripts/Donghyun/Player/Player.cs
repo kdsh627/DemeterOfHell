@@ -2,11 +2,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using Types;
 
-public class Player : MonoBehaviour
+public class Player : CreatureController
 {
     [SerializeField] private List<GameObject> playerImage;
     [SerializeField] private List<Animator> animator;
-    [SerializeField] private Item item;
+    [SerializeField] private ItemDataSO itemData;
     [SerializeField] private float speed;
     [SerializeField] private PlayerDataSO playerData; //플레이어 데이터
 
@@ -16,18 +16,27 @@ public class Player : MonoBehaviour
     private bool isAttack;
 
     public float Speed => speed;
+    public ItemDataSO ItemData => itemData;
+    public PlayerDataSO PlayerData => playerData;
     public PlayerDirection CurrentDirection => currentDirection;
     public bool IsAttack { get; set; }
-    public PlayerDataSO PlayerData { get; set; }
 
     private void Start()
     {
         currentDirection = PlayerDirection.UP;
         ImageChange(PlayerDirection.RIGHT);
         SetState(new Idle_State(), PlayerState.Idle);
-        item = GetComponent<Item>();
-        item.Data.UpdateSeed(0);
-        item.Data.UpdateRice(0);
+
+        //플레이어 체력
+        MaxHp = playerData.Hp;
+        Hp = playerData.Hp;
+
+        UIManager.Instance.PlayerHpUIUpdate((int)Hp);
+
+        itemData.UpdateSeed(0);
+        itemData.UpdateRice(0);
+        UIManager.Instance.LevelUIUpdate(playerData.Level);
+        UIManager.Instance.ExperienceUIUpdate(0.0f);
     }
 
     private void Update()
@@ -96,6 +105,7 @@ public class Player : MonoBehaviour
         currentAnimator.SetBool("Is" + temp, true);
     }
 
+
     public void ImageChange(PlayerDirection direction)
     {
         if (currentDirection == direction)
@@ -113,5 +123,25 @@ public class Player : MonoBehaviour
         playerImage[(int)currentDirection].SetActive(true);
 
         currentAnimator = animator[(int)currentDirection];
+    }
+
+    public override void OnDamaged(float damage)
+    {
+        base.OnDamaged(damage);
+        UIManager.Instance.PlayerHpUIUpdate((int)Hp); //형변환 다시 한번 체크해야함
+    }
+
+    protected override void OnDead()
+    {
+
+    }
+
+    //적에게 데미지 주기
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.transform.CompareTag("Monster"))
+        {
+            collision.transform.gameObject.GetComponent<CreatureController>().OnDamaged(playerData.MeleeAttackPower);
+        }
     }
 }

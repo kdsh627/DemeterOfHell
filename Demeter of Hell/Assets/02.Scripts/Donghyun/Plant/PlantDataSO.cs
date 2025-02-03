@@ -5,9 +5,34 @@ using Types;
 public class PlantDataSO : ScriptableObject
 {
     public PlantType PlantType;
-    public float Hp; //체력
-    public float Damage; //공격력
-    public float DamageBuff; //공격력 버프
-    public float HpBuff; //체력 회복량
-    public float Production; //웨이브당 생산량
+    public int Hp; //체력
+    public int Damage; //공격력
+    public int DamageBuff; //공격력 버프
+    public int HpBuff; //체력 회복량
+    public int Production; //웨이브당 생산량
+
+    public void Init()
+    {
+        Hp = 10;
+        Damage = 0;
+        HpBuff = 0;
+        DamageBuff = 0;
+        Production = 0;
+
+        switch (PlantType)
+        {
+            case PlantType.Rice:
+                Production = 1;
+                break;
+            case PlantType.Attack:
+                Damage = 1;
+                break;
+            case PlantType.PowerBuff:
+                DamageBuff = 1;
+                break;
+            case PlantType.HPBuff:
+                HpBuff = 1;
+                break;
+        }
+    }
 }

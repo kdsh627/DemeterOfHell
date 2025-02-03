@@ -1,30 +1,28 @@
 using UnityEngine;
 
-public class Rice : MonoBehaviour
+public class Rice : CreatureController
 {
     [SerializeField] private PlantDataSO riceData;
 
-    private float hp;
-
-    public float HP => hp;
-    public float Production => riceData.Production;
+    public static int Production;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
-        hp = riceData.Hp;
+        Production = riceData.Production;
+        Hp = riceData.Hp;
+        MaxHp = riceData.Hp;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void UpdateProduction(int value)
     {
-        
+        riceData.Production += value;
+        Production = riceData.Production;
     }
 
-    public void DecreaseHp(float value)
+    protected override void OnDead()
     {
-        hp = hp - value;
+        //임시로 파괴
+        Destroy(gameObject);
     }
-
-    
 }

@@ -1,14 +1,19 @@
 using System;
 using UnityEngine;
 using TMPro;
-using Types;
+using UnityEngine.UI;
+
 public class UIManager : MonoBehaviour
 {
     [SerializeField] private TMP_Text timerText;
     [SerializeField] private TMP_Text waveText;
     [SerializeField] private TMP_Text seedText;
+    [SerializeField] private TMP_Text playerHpText;
+    [SerializeField] private TMP_Text treeHpText;
     [SerializeField] private TMP_Text riceText;
+    [SerializeField] private TMP_Text levelText;
     [SerializeField] private GameObject MainUI;
+    [SerializeField] private Image experienceUI;
 
     private static UIManager instance;
     public static UIManager Instance
@@ -84,5 +89,25 @@ public class UIManager : MonoBehaviour
     public void SeedUIUpdate(int seed)
     {
         seedText.text = seed.ToString();
+    }
+
+    public void TreeHpUIUpdate(int hp)
+    {
+        treeHpText.text = "Tree HP : " + hp;
+    }
+
+    public void PlayerHpUIUpdate(int hp)
+    {
+        playerHpText.text = "Player HP : " + hp;
+    }
+
+    public void ExperienceUIUpdate(float experience)
+    {
+        experienceUI.fillAmount = experience;
+    }
+
+    public void LevelUIUpdate(int level)
+    {
+        levelText.text = level.ToString();
     }
 }
