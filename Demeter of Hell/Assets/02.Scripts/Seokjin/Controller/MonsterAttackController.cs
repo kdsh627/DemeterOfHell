@@ -8,16 +8,18 @@ public class MonsterAttackController : NavAgent2D
     public GameObject projectilePrefab; // 투사체 프리팹
     public float attackRange = 10f;     // 공격 범위
     bool isDead = false;
-
+    public CircleCollider2D attackCollider;
 
 
 
 
     private void Start()
     {
+
+        attackCollider = GetComponent<CircleCollider2D>();
         
-        
-        
+        attackCollider.enabled = false; // 초기에는 비활성화
+
     }
 
     public void Update()
@@ -126,11 +128,34 @@ public class MonsterAttackController : NavAgent2D
        
 
     }
-
+ 
     IEnumerator DelayTime()
     {
         yield return new WaitForSeconds(1f);
         PoolManager.Instance.Push(gameObject);
 
+    }
+
+    public void MeleeAttack()
+    {
+        attackCollider.enabled = true;  // 특정 프레임에서 공격 활성화
+        Invoke(nameof(DisableAttack), 0.1f); // 짧은 시간 후 비활성화
+    }
+
+    void DisableAttack()
+    {
+        attackCollider.enabled = false;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Flower"))
+        {
+            MonsterController mc = collision.gameObject.GetComponent<MonsterController>();
+
+            mc.OnDamaged(100);
+
+            Debug.Log("hit");
+        }
     }
 }

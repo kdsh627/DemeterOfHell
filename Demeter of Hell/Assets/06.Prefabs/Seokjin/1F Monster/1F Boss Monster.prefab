@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7977865659504714061}
   - component: {fileID: 4811694935782602751}
   - component: {fileID: 2354108109469417227}
+  - component: {fileID: 7332879839993562655}
   m_Layer: 0
   m_Name: 1F Boss Monster
   m_TagString: Monster
@@ -237,6 +238,43 @@ MonoBehaviour:
   sprite: {fileID: 0}
   projectilePrefab: {fileID: 1458140821295456385, guid: a7f035967abb7a648998cf49c3fc5129, type: 3}
   attackRange: 1
+  attackCollider: {fileID: 0}
   monsters:
   - {fileID: 4734820251503001246, guid: 9ab8db7563194a84987f0f82a7fbecdc, type: 3}
   - {fileID: 4734820251503001246, guid: dae9c4af1e6266b40a236d42e7f65d51, type: 3}
+--- !u!58 &7332879839993562655
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7898626916220795507}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.93, y: 0}
+  m_Radius: 0.68

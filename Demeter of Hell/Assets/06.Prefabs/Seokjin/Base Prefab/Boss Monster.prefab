@@ -83,7 +83,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 7441861488978599509, guid: 179f77b4a77508644bb0e4717e8add6a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1.5, y: 1.5}
@@ -237,3 +237,5 @@ MonoBehaviour:
   sprite: {fileID: 0}
   projectilePrefab: {fileID: 0}
   attackRange: 1
+  attackCollider: {fileID: 0}
+  monsters: []
