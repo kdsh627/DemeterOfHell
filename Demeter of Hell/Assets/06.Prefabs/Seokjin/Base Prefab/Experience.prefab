@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4054670386184610096}
   - component: {fileID: -5286480878173559726}
   - component: {fileID: 1682260277597568643}
+  - component: {fileID: 3339252975696271385}
   m_Layer: 0
   m_Name: Experience
   m_TagString: Untagged
@@ -165,3 +166,15 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.16
+--- !u!210 &3339252975696271385
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5841927533689879853}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 3
+  m_SortAtRoot: 0

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -4185153336737501553}
   - component: {fileID: 2449323833334907670}
   - component: {fileID: 5800354460230015980}
+  - component: {fileID: 5570536155423330591}
   m_Layer: 0
   m_Name: 1F Boss Bullet
   m_TagString: Untagged
@@ -165,3 +166,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fe8d8e8453d3b442aafa4875d4c20ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!210 &5570536155423330591
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1458140821295456385}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 3
+  m_SortAtRoot: 0

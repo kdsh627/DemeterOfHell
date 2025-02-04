@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4054670386184610096}
   - component: {fileID: 4996801754230491012}
   - component: {fileID: -5286480878173559726}
+  - component: {fileID: 1561334208727676778}
   m_Layer: 0
   m_Name: Seed
   m_TagString: Untagged
@@ -175,3 +176,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 042a03452836ce942b3110cbb338af4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!210 &1561334208727676778
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5841927533689879853}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 3
+  m_SortAtRoot: 0
