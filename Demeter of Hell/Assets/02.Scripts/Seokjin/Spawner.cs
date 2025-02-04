@@ -10,6 +10,7 @@ public class Spawner : MonoBehaviour
     public int monsterCount=0;
     public Transform[] spawnPoint;
     public GameObject[] monsters;
+    public GameObject bossMonster;
     public float spawnRadius = 1f;
     public int killMonsterCount;
     public bool isWaveStart = false;
@@ -46,25 +47,30 @@ public class Spawner : MonoBehaviour
         if (timer > 0.2f && monsterCount < maxMonsterCount)
         {
             timer = 0;
-            Spawn();
+            Spawn(false);
             monsterCount++;
         }
     }
 
-    public void Spawn()
+    public void Spawn(bool boss)
     {
-        
 
-        Vector3 RandomPosition = Random.insideUnitCircle * spawnRadius;
+        if (boss)
+        {
+            GameObject monster = PoolManager.Instance.Pop(bossMonster);
+            monster.transform.position = spawnPoint[2].position;
+        }
+        else
+        {
+            Vector3 RandomPosition = Random.insideUnitCircle * spawnRadius;
 
 
-        GameObject monster = PoolManager.Instance.Pop(monsters[Random.Range(0,monsters.Length)]);
-        //데미지 설정
-        MonsterController mc = monster.GetComponent<MonsterController>();
-        mc.MaxHp = 100;
-        mc.attackDamage = 10; 
-        
-        monster.transform.position = spawnPoint[Random.Range(1,spawnPoint.Length)].position + RandomPosition;
+            GameObject monster = PoolManager.Instance.Pop(monsters[Random.Range(0, monsters.Length)]);
+            
+            
+
+            monster.transform.position = spawnPoint[Random.Range(1, spawnPoint.Length)].position + RandomPosition;
+        }
     }
 
     public void NewRound()
@@ -89,10 +95,18 @@ public class Spawner : MonoBehaviour
         {
             maxMonsterCount = 64;
         }
+        else if(GameManager.Instance.CurrentWave == 10)
+        {
+            Spawn(true);
+        }
+
         monsterCount = 0;
         
         //체력, 공격력 받기
-        StartCoroutine(StartWave(30f));
+        if(GameManager.Instance.CurrentWave != 10)
+        {
+            StartCoroutine(StartWave(30f));
+        }
     }
 
     

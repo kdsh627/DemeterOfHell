@@ -94,6 +94,7 @@ public class MonsterAttackController : NavAgent2D
 
 
         sprite.flipX = transform.position.x > target.position.x;
+        
         //쿨타임 감소
         if (currentCooltime > 0)
         {

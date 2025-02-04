@@ -199,7 +199,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.06674343}
+  m_Offset: {x: -0.03391716, y: 0.081038356}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -209,7 +209,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.4628544, y: 0.47175312}
+  m_Size: {x: 0.97645646, y: 1.3584435}
   m_EdgeRadius: 0
 --- !u!114 &8965827268793934787
 MonoBehaviour:
@@ -241,7 +241,7 @@ MonoBehaviour:
   target: {fileID: 0}
   anim: {fileID: 0}
   sprite: {fileID: 0}
-  projectilePrefab: {fileID: 1458140821295456385, guid: 4ed2cca906ebe0c4ab4e5621c1d2c316, type: 3}
+  projectilePrefab: {fileID: 1458140821295456385, guid: ffc8f9cf938fc7348a65502a45007025, type: 3}
   attackRange: 10
   attackCollider: {fileID: 0}
 --- !u!58 &634979298425347760
@@ -251,7 +251,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4734820251503001246}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
