@@ -137,11 +137,11 @@ public class Player : CreatureController
     }
 
     //적에게 데미지 주기
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.transform.CompareTag("Monster"))
+        if (collision.transform.CompareTag("Monster"))
         {
-            collision.transform.gameObject.GetComponent<CreatureController>().OnDamaged(playerData.MeleeAttackPower);
+            collision.GetComponent<CreatureController>().OnDamaged(playerData.MeleeAttackPower);
         }
     }
 }
