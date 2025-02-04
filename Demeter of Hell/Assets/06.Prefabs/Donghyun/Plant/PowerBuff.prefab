@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3400741325087786108}
   - component: {fileID: 4372196120536347989}
   - component: {fileID: 683034972044771652}
+  - component: {fileID: 3735010515161992032}
   m_Layer: 0
   m_Name: PowerBuff
   m_TagString: Untagged
@@ -138,3 +139,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerBuffData: {fileID: 11400000, guid: a01e0a3c3a36aa64ebe5d51b6fc59e76, type: 2}
+--- !u!210 &3735010515161992032
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3872178823294262521}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 3
+  m_SortAtRoot: 0

@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 1637231371362664484}
   - component: {fileID: 5771807031464741971}
   - component: {fileID: 8939106832117963336}
-  - component: {fileID: 8445043510255969525}
   - component: {fileID: 1295620331628803591}
+  - component: {fileID: 8138999049802975318}
   m_Layer: 0
   m_Name: Tree
   m_TagString: Untagged
@@ -778,9 +778,9 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1697785075
-  m_SortingLayer: 5
-  m_SortingOrder: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 3
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -789,8 +789,21 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
---- !u!19719996 &8445043510255969525
-TilemapCollider2D:
+--- !u!114 &1295620331628803591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5112395923888905366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e595034519a88749b22852f2f5763ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  treeData: {fileID: 11400000, guid: 33729539dc596f844b87e888789beace, type: 2}
+--- !u!60 &8138999049802975318
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -824,19 +837,23 @@ TilemapCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_MaximumTileChangeCount: 1000
-  m_ExtrusionFactor: 0
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 1.2172244, y: 0.12651491}
+      - {x: -0.3485713, y: 0.09356141}
+      - {x: -0.9168823, y: -0.91332436}
+      - {x: -0.5342804, y: -1.1997993}
+      - {x: 0.35818774, y: -1.4276377}
+      - {x: 1.2514663, y: -1.283216}
+      - {x: 1.5092062, y: -0.8453779}
+      - {x: 1.6713157, y: -0.29712772}
   m_UseDelaunayMesh: 0
---- !u!114 &1295620331628803591
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5112395923888905366}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e595034519a88749b22852f2f5763ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  treeData: {fileID: 11400000, guid: 33729539dc596f844b87e888789beace, type: 2}

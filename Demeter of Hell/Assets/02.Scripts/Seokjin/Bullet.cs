@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class PeaBullet : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D other)
     {
