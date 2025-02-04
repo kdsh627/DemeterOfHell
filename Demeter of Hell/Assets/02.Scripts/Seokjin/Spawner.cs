@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
+    public static Spawner Instance { get; private set; }
     public float timer=0;
     public int maxMonsterCount;
     public int monsterCount=0;
@@ -12,9 +13,21 @@ public class Spawner : MonoBehaviour
     public float spawnRadius = 15f;
 
     public bool isWaveStart = false;
-
+    private void Awake()
+    {
+        // 싱글톤 초기화
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Awake()
+    void Start()
     {
         spawnPoint = GetComponentsInChildren<Transform>();
     }
@@ -54,10 +67,30 @@ public class Spawner : MonoBehaviour
         monster.transform.position = spawnPoint[Random.Range(1,spawnPoint.Length)].position + RandomPosition;
     }
 
-    public void NewRound(int _maxMonsterCount)
+    public void NewRound()
     {
+        if (1 <= GameManager.Instance.CurrentWave && GameManager.Instance.CurrentWave < 3)
+        {
+            maxMonsterCount = 16;
+        }
+        else if(3 <= GameManager.Instance.CurrentWave && GameManager.Instance.CurrentWave < 5)
+        {
+            maxMonsterCount = 28;
+        }
+        else if (5 <= GameManager.Instance.CurrentWave && GameManager.Instance.CurrentWave < 7)
+        {
+            maxMonsterCount = 40;
+        }
+        else if (7 <= GameManager.Instance.CurrentWave && GameManager.Instance.CurrentWave < 9)
+        {
+            maxMonsterCount = 52;
+        }
+        else if (9 <= GameManager.Instance.CurrentWave && GameManager.Instance.CurrentWave < 10)
+        {
+            maxMonsterCount = 64;
+        }
         monsterCount = 0;
-        maxMonsterCount = _maxMonsterCount;
+        
         //체력, 공격력 받기
         StartCoroutine(StartWave(30f));
     }

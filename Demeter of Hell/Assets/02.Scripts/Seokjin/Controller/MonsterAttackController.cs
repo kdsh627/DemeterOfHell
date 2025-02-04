@@ -23,6 +23,7 @@ public class MonsterAttackController : NavAgent2D
     }
     public void OnEnable()
     {
+        isDead = false;
         GetComponent<BoxCollider2D>().enabled = true;
         if (1 <= GameManager.Instance.CurrentWave && GameManager.Instance.CurrentWave < 5)
         {
@@ -153,7 +154,17 @@ public class MonsterAttackController : NavAgent2D
         anim.SetTrigger("Dead");
         gameObject.GetComponent<Collider2D>().enabled = false;
         StartCoroutine(DelayTime());
-       // if()
+        Debug.Log(Spawner.Instance.monsterCount + "+" + Spawner.Instance.maxMonsterCount);
+        if(Spawner.Instance.monsterCount>= Spawner.Instance.maxMonsterCount)
+        {
+
+            if (AllMonstersDead())
+            {
+                Debug.Log("allmonsterdead");
+            }
+            else
+                Debug.Log("s");
+        }
        
 
     }
@@ -181,11 +192,27 @@ public class MonsterAttackController : NavAgent2D
     {
         if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Flower"))
         {
-            MonsterController mc = collision.gameObject.GetComponent<MonsterController>();
+            CreatureController mc = collision.gameObject.GetComponent<CreatureController>();
 
             mc.OnDamaged(attackDamage);
 
             Debug.Log("hit");
         }
+    }
+
+    public bool AllMonstersDead()
+    {
+        GameObject[] monsters = GameObject.FindGameObjectsWithTag("Monster");
+
+        foreach (GameObject monster in monsters)
+        {
+            
+            if (monster.activeSelf)
+            {
+                return false;
+            }
+        }
+        return true;
+
     }
 }
