@@ -24,7 +24,6 @@ public class PlantManager : MonoBehaviour
     private PlantType currentType;
     private static PlantManager instance;
 
-
     public static PlantManager Instance
     {
         get
