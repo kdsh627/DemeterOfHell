@@ -9,7 +9,7 @@ public class MonsterAttackController : NavAgent2D
     public float attackRange = 10f;     // 공격 범위
     bool isDead = false;
     public CircleCollider2D attackCollider;
-
+    
 
 
 
@@ -160,10 +160,9 @@ public class MonsterAttackController : NavAgent2D
 
             if (AllMonstersDead())
             {
-                Debug.Log("allmonsterdead");
+                Debug.Log("all monster dead");
             }
-            else
-                Debug.Log("s");
+            
         }
        
 
@@ -202,17 +201,13 @@ public class MonsterAttackController : NavAgent2D
 
     public bool AllMonstersDead()
     {
-        GameObject[] monsters = GameObject.FindGameObjectsWithTag("Monster");
-
-        foreach (GameObject monster in monsters)
+        Spawner.Instance.killMonsterCount++;
+        if(Spawner.Instance.killMonsterCount == Spawner.Instance.maxMonsterCount)
         {
-            
-            if (monster.activeSelf)
-            {
-                return false;
-            }
+            Spawner.Instance.killMonsterCount = 0;
+            return true;
         }
-        return true;
+        return false;
 
     }
 }

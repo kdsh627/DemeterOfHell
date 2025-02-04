@@ -10,8 +10,8 @@ public class Spawner : MonoBehaviour
     public int monsterCount=0;
     public Transform[] spawnPoint;
     public GameObject[] monsters;
-    public float spawnRadius = 15f;
-
+    public float spawnRadius = 1f;
+    public int killMonsterCount;
     public bool isWaveStart = false;
     private void Awake()
     {
@@ -43,7 +43,7 @@ public class Spawner : MonoBehaviour
 
         timer += Time.deltaTime;
 
-        if (timer > 0.2f && monsterCount <= maxMonsterCount)
+        if (timer > 0.2f && monsterCount < maxMonsterCount)
         {
             timer = 0;
             Spawn();
