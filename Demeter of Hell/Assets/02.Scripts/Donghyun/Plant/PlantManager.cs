@@ -24,7 +24,6 @@ public class PlantManager : MonoBehaviour
     private PlantType currentType;
     private static PlantManager instance;
 
-
     public static PlantManager Instance
     {
         get
@@ -81,7 +80,10 @@ public class PlantManager : MonoBehaviour
         if(plants[(int)currentType].count < plants[(int)currentType].maxValue)
         {
             GameObject go = Instantiate(plants[(int)currentType].plant, plantGroup.transform);
+
             go.transform.position = Position;
+
+            TargetManager.Instance.targets.Add(go.transform); //타겟 매니저에 해당 타겟 추가
 
             plants[(int)currentType].count++;
         }

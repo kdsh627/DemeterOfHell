@@ -13,7 +13,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private PlayerDataSO playerData;
     [SerializeField] private TreeDataSO treeData;
 
-
     private int currentScene;
     private int currentRound;
     private int currentWave;
@@ -26,7 +25,6 @@ public class GameManager : MonoBehaviour
     public bool BeginWave => beginWave;
     public ItemDataSO Item => itemData;
     public int CurrentWave => currentWave;
-    public int MonstersAmount => monstersAmount;
 
     public static GameManager Instance
     {
@@ -39,8 +37,6 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        monstersAmount = 0; 
-
         //현재 씬 번호
         currentScene = SceneManager.GetActiveScene().buildIndex;
 

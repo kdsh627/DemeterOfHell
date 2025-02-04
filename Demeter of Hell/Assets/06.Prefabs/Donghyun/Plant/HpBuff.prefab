@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6785751118698861317}
   - component: {fileID: 3165987191222684190}
   - component: {fileID: 322489669924966746}
+  - component: {fileID: -7325353617582295724}
   m_Layer: 0
   m_Name: HpBuff
   m_TagString: Untagged
@@ -138,3 +139,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hpBuffData: {fileID: 11400000, guid: 41795583a1964db4ebe56d1621e44c6a, type: 2}
+--- !u!210 &-7325353617582295724
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49271492792515692}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 3
+  m_SortAtRoot: 0
