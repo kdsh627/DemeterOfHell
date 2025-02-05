@@ -52,7 +52,7 @@ public class TileHighlighter : MonoBehaviour
             tilemap.SetColor(cellPosition, highlightColor); // 색상 변경
 
             //여기서 클릭이벤트 확인
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && PlantManager.Instance.PaySeed())
             {
                 tilemap.SetColor(cellPosition, defaultColor);
                 tilemap.SetTileFlags(cellPosition, TileFlags.LockColor);

@@ -71,6 +71,11 @@ public class GameManager : MonoBehaviour
     //씬 변경
     public void ChangeScene()
     {
+        if(currentScene >= 1)
+        {
+            PlantManager.Instance.SettlePlant(itemData);
+        }
+
         SceneManager.LoadScene(++currentScene);
         if(currentScene >= 1 && currentScene < maxScene)
         {
@@ -86,6 +91,7 @@ public class GameManager : MonoBehaviour
         currentRound = currentScene;
         beginWave = false;
         UIManager.Instance.WaveUIUpdate(currentWave, maxWave);
+        PlantManager.Instance.SetPlantManagerInit();
     }
 
     //웨이브 시작
@@ -112,6 +118,8 @@ public class GameManager : MonoBehaviour
         else
         {
             UIManager.Instance.WaveUIUpdate(currentWave, maxWave);
+            UIManager.Instance.WaveEnd();
+            PlantManager.Instance.SetPlantManagerInit();
         }
     }
 

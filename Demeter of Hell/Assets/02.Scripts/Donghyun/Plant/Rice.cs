@@ -5,11 +5,12 @@ public class Rice : CreatureController
     [SerializeField] private PlantDataSO riceData;
 
     public static int Production;
+    public static int Price;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
         Production = riceData.Production;
+        Price = riceData.Price;
         Hp = riceData.Hp;
         MaxHp = riceData.Hp;
         TargetManager.Instance.targets.Add(transform);

@@ -26,8 +26,7 @@ namespace Types
     {
         Rice,
         Attack,
-        PowerBuff,
-        HPBuff
+        HpBuff
     }
 }
 

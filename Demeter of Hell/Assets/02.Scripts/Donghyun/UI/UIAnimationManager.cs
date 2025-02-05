@@ -1,80 +1,105 @@
 using UnityEngine;
 using DG.Tweening;
 using System;
-using System.Collections;
 
 namespace Donghyun.UI.Animation
 {
     [Serializable]
-    public struct UIInfomation
+    public struct UIInformation
     {
         public RectTransform rectTransform;
-        public float startPosY, endPosY;
+        public Vector2 start, end;
         public float tweenDuration;
     }
 
-    public class UIAnimationManager : MonoBehaviour
+    public enum AnimationType
     {
-        private static UIAnimationManager instance;
-        private UIInfomation UIInfo;
+        Slide,
+        PopUp
+    }
 
-        public static UIAnimationManager Instance
+    public class UIAnimationManager
+    {
+        public static void OpenUI(Action callBack, UIInformation UIInfo, AnimationType type)
         {
-            get
+            Init(UIInfo, type);
+            switch (type)
             {
-                if (instance == null) instance = new UIAnimationManager();
-                return instance;
+                case AnimationType.Slide:
+                    SlideAnimation(callBack, false, UIInfo);
+                    break;
+                case AnimationType.PopUp:
+                    PopUpAnimation(callBack, false, UIInfo);
+                    break;
+            }
+        }
+        public static void CloseUI(Action callBack, UIInformation UIInfo, AnimationType type)
+        {
+            switch (type)
+            {
+                case AnimationType.Slide:
+                    SlideAnimation(callBack, true, UIInfo);
+                    break;
+                case AnimationType.PopUp:
+                    PopUpAnimation(callBack, true, UIInfo);
+                    break;
             }
         }
 
-        private void Awake()
+
+        private static void SlideAnimation(Action callBack, bool reverse, UIInformation UIInfo)
         {
-            //인스턴스가 비어있다면 할당해주고, 
-            //해당 오브젝트를 씬 이동간 파괴하지 않게함
-            if (instance == null)
+            if (!reverse)
             {
-                instance = this;
-                DontDestroyOnLoad(gameObject);
+                Debug.Log("슬라이드 애니메이션 실행 - 열기");
+                callBack();
+                UIInfo.rectTransform.DOAnchorPos(UIInfo.end, UIInfo.tweenDuration)
+                    .SetEase(Ease.OutCubic)
+                    .SetUpdate(true);
             }
-            // 인스턴스가 이미 할당돼있다면(2개 이상이라면) 파괴
             else
             {
-                Destroy(gameObject);
+                Debug.Log("슬라이드 애니메이션 실행 - 닫기");
+                UIInfo.rectTransform.DOAnchorPos(UIInfo.start, UIInfo.tweenDuration)
+                    .SetEase(Ease.InCubic)
+                    .SetUpdate(true)
+                    .OnComplete(() => { callBack(); });
             }
         }
 
-        public void Init(UIInfomation UIInfo)
+        private static void PopUpAnimation(Action callBack, bool reverse, UIInformation UIInfo)
         {
-            this.UIInfo = UIInfo;
+            if (!reverse)
+            {
+                Debug.Log("팝업 애니메이션 실행 - 열기");
+                callBack();
+                UIInfo.rectTransform.DOScale(UIInfo.end, UIInfo.tweenDuration)
+                    .SetEase(Ease.OutBack)
+                    .SetUpdate(true);
+            }
+            else
+            {
+                Debug.Log("팝업 애니메이션 실행 - 닫기");
+                UIInfo.rectTransform.DOScale(UIInfo.start, UIInfo.tweenDuration)
+                    .SetEase(Ease.InBack)
+                    .SetUpdate(true)
+                    .OnComplete(() => { callBack(); });
+            }
         }
 
-        public void InitPositon()
+
+        private static void Init(UIInformation UIInfo, AnimationType type)
         {
-            Debug.Log("UIAnimation - 초기 포지션 조정");
-            UIInfo.rectTransform.localPosition = new Vector3(UIInfo.rectTransform.localPosition.x, UIInfo.startPosY, UIInfo.rectTransform.localPosition.z);
-        }
-
-        public void OpenUI(Action callBack)
-        {
-            callBack();
-            Debug.Log("UIAnimation - UI 열림");
-            UIInfo.rectTransform.DOAnchorPosY(UIInfo.endPosY, UIInfo.tweenDuration).SetUpdate(true);
-        }
-
-        public void CloseUI(Action callBack)
-        {
-            Debug.Log("UIAnimation - UI 닫힘");
-            UIInfo.rectTransform.DOAnchorPosY(UIInfo.startPosY, UIInfo.tweenDuration).SetUpdate(true);
-
-            StartCoroutine(InvokeActionRoutine(callBack));
-        }
-
-        private IEnumerator InvokeActionRoutine(Action callBack)
-        {
-            yield return new WaitForSecondsRealtime(UIInfo.tweenDuration);
-
-            Debug.Log("UIAnimation - 지연 실행");
-            callBack?.Invoke(); // Action 호출
+            Debug.Log("UIAnimation - 초기값 조정");
+            switch (type)
+            {
+                case AnimationType.Slide:
+                    UIInfo.rectTransform.localPosition = new Vector3(UIInfo.start.x, UIInfo.start.y, UIInfo.rectTransform.localPosition.z);
+                    break;
+                case AnimationType.PopUp:
+                    UIInfo.rectTransform.localScale = new Vector3(UIInfo.start.x, UIInfo.start.y, UIInfo.rectTransform.localScale.z);
+                    break;
+            }
         }
     }
 }

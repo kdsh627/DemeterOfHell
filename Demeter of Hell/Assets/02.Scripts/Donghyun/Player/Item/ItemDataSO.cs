@@ -17,6 +17,11 @@ public class ItemDataSO : ScriptableObject
     public void UpdateRice(int value)
     {
         RiceValue += value;
+        if(RiceValue % 5 == 0)
+        {
+            UpdateSeed(RiceValue / 5);
+            RiceValue = 0;
+        }
         UIManager.Instance.RiceUIUpdate(RiceValue);
     }
 
@@ -24,5 +29,18 @@ public class ItemDataSO : ScriptableObject
     {
         SeedValue += value;
         UIManager.Instance.SeedUIUpdate(SeedValue);
+    }
+
+    public bool PaySeed(int value)
+    {
+        if(SeedValue - value >= 0)
+        {
+            UpdateSeed(-value);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }

@@ -28,7 +28,7 @@ namespace Donghyun.UI.Option
         [SerializeField] private OptionState currentState;
 
         [Header("-----UI Animation Info------")]
-        [SerializeField] private UIInfomation UIInfo;
+        [SerializeField] private UIInformation UIInfo;
 
         private bool isOpen;
 
@@ -45,8 +45,6 @@ namespace Donghyun.UI.Option
                 buttons[i].Panel.SetActive(false);
             }
 
-            UIAnimationManager.Instance.Init(UIInfo);
-            UIAnimationManager.Instance.InitPositon();
             isOpen = false;
         }
 
@@ -65,24 +63,24 @@ namespace Donghyun.UI.Option
 
         private void OpenOptionPanel()
         {
-            UIAnimationManager.Instance.OpenUI(() =>
+            UIAnimationManager.OpenUI(() =>
             {
                 darkPanel.SetActive(true);
                 optionPanel.SetActive(true);
 
                 ChangeUIState(OptionState.Graphic);
                 Time.timeScale = 0.0f;
-            });
+            }, UIInfo, AnimationType.Slide);
         }
 
         private void CloseOptionPanel()
         {
-            UIAnimationManager.Instance.CloseUI(()=>
+            UIAnimationManager.CloseUI(()=>
             {
                 darkPanel.SetActive(false);
                 optionPanel.SetActive(false);
                 Time.timeScale = 1.0f;
-            });
+            }, UIInfo, AnimationType.Slide);
         }
          
         //현재 눌린 버튼에 해당하는 옵션을 띄우는 함수

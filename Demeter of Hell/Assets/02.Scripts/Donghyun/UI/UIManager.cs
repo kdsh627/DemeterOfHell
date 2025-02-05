@@ -2,18 +2,38 @@ using System;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-
+using Types;
+using Donghyun.UI.Animation;
 public class UIManager : MonoBehaviour
 {
+    [Header("----- UI -----")]
+    [SerializeField] private GameObject totalCanvas;
+    [SerializeField] private GameObject MainUI;
+
+    [Header("----- Wave -----")]
     [SerializeField] private TMP_Text timerText;
     [SerializeField] private TMP_Text waveText;
-    [SerializeField] private TMP_Text seedText;
+    [SerializeField] private GameObject startButton;
+
+    [Header("----- HP -----")]
     [SerializeField] private TMP_Text playerHpText;
+    [SerializeField] private Image playerHpFill;
     [SerializeField] private TMP_Text treeHpText;
+    [SerializeField] private Image treeHpFill;
+
+    [Header("----- Player -----")]
+    [SerializeField] private TMP_Text seedText;
     [SerializeField] private TMP_Text riceText;
     [SerializeField] private TMP_Text levelText;
-    [SerializeField] private GameObject MainUI;
     [SerializeField] private Image experienceUI;
+
+    [Header("----- Plant -----")]
+    [SerializeField] private GameObject[] plantUI;
+    [SerializeField] private GameObject currentPlantUI;
+
+    [Header("----- Enforce -----")]
+    [SerializeField] private GameObject enforceCanvas;
+    [SerializeField] private UIInformation UIInfo;
 
     private static UIManager instance;
     public static UIManager Instance
@@ -33,24 +53,13 @@ public class UIManager : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(totalCanvas);
         }
         // 인스턴스가 이미 할당돼있다면(2개 이상이라면) 파괴
         else
         {
             Destroy(gameObject);
         }
-    }
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     //시간 UI 업데이트
@@ -91,14 +100,16 @@ public class UIManager : MonoBehaviour
         seedText.text = seed.ToString();
     }
 
-    public void TreeHpUIUpdate(int hp)
+    public void TreeHpUIUpdate(int hp, int maxHp)
     {
-        treeHpText.text = "Tree HP : " + hp;
+        treeHpText.text = string.Format("Tree HP : {0:D2} / {1:D2}", hp, maxHp);
+        treeHpFill.fillAmount = maxHp / hp;
     }
 
-    public void PlayerHpUIUpdate(int hp)
+    public void PlayerHpUIUpdate(int hp, int maxHp)
     {
-        playerHpText.text = "Player HP : " + hp;
+        playerHpText.text = string.Format("Player HP : {0:D2} / {1:D2}", hp, maxHp);
+        playerHpFill.fillAmount = maxHp / hp;
     }
 
     public void ExperienceUIUpdate(float experience)
@@ -109,5 +120,45 @@ public class UIManager : MonoBehaviour
     public void LevelUIUpdate(int level)
     {
         levelText.text = level.ToString();
+    }
+
+    public void ChangeCurrentPlantUI(PlantType type)
+    {
+        foreach(GameObject go in plantUI)
+        {
+            go.SetActive(false);
+        }
+
+        plantUI[(int)type].SetActive(true);
+    }
+
+    public void WaveStartButton()
+    {
+        currentPlantUI.SetActive(false);
+        startButton.SetActive(false);
+    }
+
+    public void WaveEnd()
+    {
+        currentPlantUI.SetActive(true);
+        startButton.SetActive(true);
+    }
+
+    public void OpenEnforce()
+    {
+        UIAnimationManager.OpenUI(() =>
+        {
+            enforceCanvas.SetActive(true);
+            Time.timeScale = 0.0f;
+        }, UIInfo, AnimationType.Slide);
+    }
+
+    public void ClosedEnforce()
+    {
+        UIAnimationManager.OpenUI(() =>
+        {
+            enforceCanvas.SetActive(false);
+            Time.timeScale = 1.0f;
+        }, UIInfo, AnimationType.Slide);
     }
 }

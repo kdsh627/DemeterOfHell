@@ -1,8 +1,6 @@
-using Donghyun.UI.Animation;
 using UnityEngine;
 using Types;
 using System;
-using Unity.VisualScripting;
 
 [Serializable]
 public struct PlantInfo
@@ -16,13 +14,11 @@ public class PlantManager : MonoBehaviour
 {
     [SerializeField] private GameObject plantGroup;
     [SerializeField] private PlantInfo[] plants;
-    [SerializeField] private int maxRiceValue;
-    [SerializeField] private int maxAttackValue;
-    [SerializeField] private int maxPowerBuffValue;
-    [SerializeField] private int maxHPBuffValue;
 
     private PlantType currentType;
     private static PlantManager instance;
+
+    public PlantType CurrentPlantType => currentType;
 
     public static PlantManager Instance
     {
@@ -43,6 +39,7 @@ public class PlantManager : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(plantGroup);
         }
         // 인스턴스가 이미 할당돼있다면(2개 이상이라면) 파괴
         else
@@ -51,7 +48,7 @@ public class PlantManager : MonoBehaviour
         }
     }
 
-    void Update()
+    private void Update()
     {
         if(!GameManager.Instance.BeginWave)
         {
@@ -65,13 +62,16 @@ public class PlantManager : MonoBehaviour
             }
             else if (Input.GetKey(KeyCode.Alpha3))
             {
-                currentType = PlantType.PowerBuff;
+                currentType = PlantType.HpBuff;
             }
-            else if (Input.GetKey(KeyCode.Alpha4))
-            {
-                currentType = PlantType.HPBuff;
-            }
+            UIManager.Instance.ChangeCurrentPlantUI(currentType);
         }
+    }
+
+    public void SetPlantManagerInit()
+    {
+        currentType = PlantType.Rice;
+        UIManager.Instance.ChangeCurrentPlantUI(currentType);
     }
 
     public void SpawnPlant(Vector3 Position)
@@ -89,15 +89,57 @@ public class PlantManager : MonoBehaviour
         }
     }
 
+    public bool PaySeed()
+    {
+        int Price = 0;
+        switch (currentType)
+        {
+            case PlantType.Rice:
+                Price = Rice.Price;
+                break;
+            case PlantType.Attack:
+                Price = Attack.Price;
+                break;
+            case PlantType.HpBuff:
+                Price = HpBuff.Price;
+                break;
+        }
+
+        return GameManager.Instance.Item.PaySeed(Price);
+    }
+
+
+    //해당 라운드 식물을 정산
+    public void SettlePlant(ItemDataSO item)
+    {
+        for(int i = 0; i < plants.Length; i++) 
+        {
+            switch ((PlantType)i)
+            {
+                case PlantType.Rice:
+                    item.UpdateSeed(plants[i].count * Rice.Price);
+                    break;
+                case PlantType.Attack:
+                    item.UpdateSeed(plants[i].count * Attack.Price);
+                    break;
+                case PlantType.HpBuff:
+                    item.UpdateSeed(plants[i].count * HpBuff.Price);
+                    break;
+            }
+            plants[i].count = 0;
+        }
+
+        for(int i = plantGroup.transform.childCount - 1; i >= 0; --i)
+        {
+            Destroy(plantGroup.transform.GetChild(i));
+        }
+    }
+
+
     //벼 수확
     public void HarvestRice()
     {
         GameManager.Instance.Item.UpdateRice(plants[(int)PlantType.Rice].count * Rice.Production);
-    }
-
-    public void ActivateAttackBuff()
-    {
-        
     }
 
     public void ActivateHpBuff()

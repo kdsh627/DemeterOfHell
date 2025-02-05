@@ -4,8 +4,12 @@ public class Attack : CreatureController
 {
     [SerializeField] private PlantDataSO attackData;
 
+    public static int Production;
+    public static int Price;
     void Start()
     {
+        Production = attackData.Production;
+        Price = attackData.Price;
         Hp = attackData.Hp;
         MaxHp = attackData.Hp;
     }
