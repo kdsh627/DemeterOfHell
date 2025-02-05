@@ -10,6 +10,7 @@ TagManager:
   - Seed
   - Experience
   - SpawnArea
+  - AudioManager
   layers:
   - Default
   - TransparentFX

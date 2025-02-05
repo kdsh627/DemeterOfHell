@@ -123,12 +123,10 @@ public class UIManager : MonoBehaviour
 
     public void ChangeCurrentPlantUI(PlantType type)
     {
-        foreach(GameObject go in plantUI)
-        {
-            go.SetActive(false);
-        }
+        //plantUI[0].SetActive(false);
+        //plantUI[1].SetActive(false);
 
-        plantUI[(int)type].SetActive(true);
+        //plantUI[(int)type].SetActive(true);
     }
 
     public void WaveStartButton()
@@ -168,6 +166,11 @@ public class UIManager : MonoBehaviour
     public void CloseRespawnText()
     {
         respawnText.SetActive(false);
+    }
+
+    public void WaveStart()
+    {
+        GameManager.Instance.WaveStart();
     }
 
     public void Exit()

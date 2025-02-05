@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UIElements;
 
 [CreateAssetMenu(fileName = "TreeDataSO", menuName = "Scriptable Objects/TreeDataSO")]
 public class TreeDataSO : ScriptableObject

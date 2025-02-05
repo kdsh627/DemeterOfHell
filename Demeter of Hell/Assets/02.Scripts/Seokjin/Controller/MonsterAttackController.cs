@@ -1,7 +1,5 @@
 using UnityEngine;
-using System.Collections.Generic;
 using System.Collections;
-using UnityEngine.U2D;
 
 public class MonsterAttackController : NavAgent2D
 {

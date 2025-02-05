@@ -1,7 +1,6 @@
 using UnityEngine;
 using Types;
 using System;
-using UnityEngine.Tilemaps;
 
 [Serializable]
 public struct PlantInfo
@@ -61,16 +60,18 @@ public class PlantManager : MonoBehaviour
             if (Input.GetKey(KeyCode.Alpha1))
             {
                 currentType = PlantType.Rice;
+                UIManager.Instance.ChangeCurrentPlantUI(currentType);
             }
             else if (Input.GetKey(KeyCode.Alpha2))
             {
                 currentType = PlantType.Attack;
+                UIManager.Instance.ChangeCurrentPlantUI(currentType);
             }
             else if (Input.GetKey(KeyCode.Alpha3))
             {
                 currentType = PlantType.HpBuff;
+                UIManager.Instance.ChangeCurrentPlantUI(currentType);
             }
-            UIManager.Instance.ChangeCurrentPlantUI(currentType);
         }
     }
 

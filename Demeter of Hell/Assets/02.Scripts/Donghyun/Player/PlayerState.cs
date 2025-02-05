@@ -1,6 +1,3 @@
-using UnityEngine;
-using Types;
-
 public interface IPlayerState
 {
     void Input(Player player, string input);

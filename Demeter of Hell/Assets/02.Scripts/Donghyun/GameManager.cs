@@ -1,8 +1,5 @@
-using Types;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Tilemaps;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,7 +12,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private ItemDataSO itemData;
     [SerializeField] private PlayerDataSO playerData;
     [SerializeField] private TreeDataSO treeData;
-    [SerializeField] private TileHighlighter tileHighlighter;
     [SerializeField] private float deadTime;
 
     private int currentScene;
@@ -62,8 +58,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        RoundStart(); //테스트 코드
-        AudioManager.Instance.PlayBgm(true);
+        GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>().PlayBgm(true);
     }
 
     private void Update()
@@ -96,12 +91,12 @@ public class GameManager : MonoBehaviour
 
         SceneManager.LoadScene(++currentScene);
 
-        AudioManager.Instance.PlayBgm(true);
+        GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>().PlayBgm(true);
 
         if (currentScene >= 1 && currentScene < maxScene)
         {
-            UIManager.Instance.SetActiveMainUI();
             RoundStart();
+            UIManager.Instance.SetActiveMainUI();
         }
     }
 
@@ -112,9 +107,9 @@ public class GameManager : MonoBehaviour
         currentRound = currentScene;
         beginWave = false;
         SetPlayer();
-        UIManager.Instance.WaveUIUpdate(currentWave, maxWave);
         PlantManager.Instance.SetPlantManagerInit();
         UIManager.Instance.WaveEnd();
+        UIManager.Instance.WaveUIUpdate(currentWave, maxWave);
     }
 
     //웨이브 시작
