@@ -75,6 +75,7 @@ public class Spawner : MonoBehaviour
 
     public void NewRound()
     {
+        
         if (1 <= GameManager.Instance.CurrentWave && GameManager.Instance.CurrentWave < 3)
         {
             maxMonsterCount = 16;
@@ -99,7 +100,8 @@ public class Spawner : MonoBehaviour
         {
             Spawn(true);
         }
-
+        
+        
         monsterCount = 0;
         
         //체력, 공격력 받기

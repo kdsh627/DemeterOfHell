@@ -203,7 +203,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.34375, y: 2.34375}
+    oldSize: {x: 4.6875, y: 4.6875}
     newSize: {x: 1.5, y: 1.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -278,8 +278,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.39, y: -0.15}
-  m_Radius: 0.31
+  m_Offset: {x: 0, y: -0.25}
+  m_Radius: 0.95
 --- !u!210 &-8744695829040318504
 SortingGroup:
   m_ObjectHideFlags: 0

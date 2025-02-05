@@ -203,7 +203,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.5, y: 1.5}
+    oldSize: {x: 4.6875, y: 4.6875}
     newSize: {x: 1.5, y: 1.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -241,7 +241,7 @@ MonoBehaviour:
   target: {fileID: 0}
   anim: {fileID: 0}
   sprite: {fileID: 0}
-  projectilePrefab: {fileID: 1458140821295456385, guid: 4ed2cca906ebe0c4ab4e5621c1d2c316, type: 3}
+  projectilePrefab: {fileID: 1458140821295456385, guid: a583064e65cb33c49adbc610c8c327d2, type: 3}
   attackRange: 10
   attackCollider: {fileID: 0}
 --- !u!58 &-2625841728200712810
