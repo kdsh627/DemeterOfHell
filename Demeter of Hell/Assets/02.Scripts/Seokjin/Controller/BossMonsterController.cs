@@ -9,7 +9,7 @@ public class BossMonsterController : MonsterAttackController
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -19,13 +19,13 @@ public class BossMonsterController : MonsterAttackController
         index = Random.Range(0, 3); //패턴의 수 만큼 넣어주세요
 
         //디버그용
-        
+
 
         Debug.Log("attack 들어옴");
         anim.SetInteger("Pattern Index", index);
         Debug.Log(index);
         currentCooltime = attackCooltime;
-    
+
     }
 
     public void PatternEnd()
@@ -66,7 +66,7 @@ public class BossMonsterController : MonsterAttackController
     {
         for (int i = 0; i < 5; i++)
         {
-            SummonMonster(0);    
+            SummonMonster(0);
             SummonMonster(1);
             yield return new WaitForSeconds(0.5f);
         }
@@ -74,10 +74,11 @@ public class BossMonsterController : MonsterAttackController
 
     public void SummonMonster(int index)
     {
-        
-         Vector3 RandomPosition = Random.insideUnitCircle * 5f;
-         GameObject monster = PoolManager.Instance.Pop(monsters[index]);
-         monster.transform.position = transform.position + RandomPosition;
-        
+
+        Vector3 RandomPosition = Random.insideUnitCircle * 5f;
+        GameObject monster = PoolManager.Instance.Pop(monsters[index]);
+        monster.transform.position = transform.position + RandomPosition;
+
     }
 }
+
