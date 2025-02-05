@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1360047432038198224
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6366282974555364783}
+  - component: {fileID: 5301275918391826325}
+  m_Layer: 0
+  m_Name: EnforceManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6366282974555364783
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1360047432038198224}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5301275918391826325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1360047432038198224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc5d4b717d27df948bf8b18e6b69a42a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerData: {fileID: 11400000, guid: d390cb51fa1cd104e9225e1ff921b551, type: 2}
+  riceData: {fileID: 11400000, guid: 3d3482f1f53b2184ea738180fd6fb9f6, type: 2}
+  peaShootData: {fileID: 11400000, guid: 50379132bf518de40994fe2fdbec4e11, type: 2}
+  hpBuffData: {fileID: 11400000, guid: 41795583a1964db4ebe56d1621e44c6a, type: 2}
+  player: {fileID: 0}
+  playerDamage:
+    constant: 1
+    minRange: 0
+    maxRange: 2
+  playerMaxHp:
+    constant: 5
+    minRange: 0
+    maxRange: 10
+  playerRegenaration:
+    constant: 1
+    minRange: 0
+    maxRange: 2
+  riceProduction:
+    constant: 1
+    minRange: 0
+    maxRange: 2
+  peaShootDamage:
+    constant: 1
+    minRange: 0
+    maxRange: 2
+  hpBuff:
+    constant: 1
+    minRange: 0
+    maxRange: 2
