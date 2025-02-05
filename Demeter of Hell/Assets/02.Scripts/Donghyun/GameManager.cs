@@ -2,9 +2,12 @@ using Types;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Tilemaps;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject player;
+
     [SerializeField] private int maxWave;
     [SerializeField] private int maxRound;
     [SerializeField] private float waveTimeLimit;
@@ -13,12 +16,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] private PlayerDataSO playerData;
     [SerializeField] private TreeDataSO treeData;
     [SerializeField] private TileHighlighter tileHighlighter;
+    [SerializeField] private float deadTime;
 
     private int currentScene;
     private int currentRound;
     private int currentWave;
     private float currentTime;
     private bool beginWave;
+    private float currentDeadTime;
+    private bool isDead;
 
     private static GameManager instance;
 
@@ -67,6 +73,17 @@ public class GameManager : MonoBehaviour
         {
             TimeUpdate();
         }
+
+        if(isDead)
+        {
+            Debug.Log(currentDeadTime);
+            ExcuteDeadTime();
+        }
+    }
+
+    public void SetPlayer()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     //씬 변경
@@ -94,6 +111,7 @@ public class GameManager : MonoBehaviour
         currentWave = 1;
         currentRound = currentScene;
         beginWave = false;
+        SetPlayer();
         UIManager.Instance.WaveUIUpdate(currentWave, maxWave);
         PlantManager.Instance.SetPlantManagerInit();
         UIManager.Instance.WaveEnd();
@@ -104,7 +122,6 @@ public class GameManager : MonoBehaviour
     {
         beginWave = true;
         currentTime = waveTimeLimit;
-
     }
 
     //웨이브 종료
@@ -127,6 +144,38 @@ public class GameManager : MonoBehaviour
             PlantManager.Instance.SetPlantManagerInit();
         }
     }
+
+    public void PlayerDead()
+    {
+        isDead = true;
+        player.SetActive(false);
+        currentDeadTime = deadTime;
+        UIManager.Instance.OpenRespawnText();
+    }
+
+    public void ExcuteDeadTime()
+    {
+        if(currentDeadTime > Mathf.Epsilon)
+        {
+            currentDeadTime -= Time.deltaTime;
+        }
+        else
+        {
+            currentDeadTime = 0.0f;
+            Respawn();
+        }
+    }
+
+    public void Respawn()
+    {
+        isDead = false;
+        Player playerComponent = player.GetComponent<Player>();
+        playerComponent.Hp = playerComponent.PlayerData.Hp;
+        playerComponent.MaxHp = playerComponent.PlayerData.Hp;
+        player.SetActive(true);
+        UIManager.Instance.CloseRespawnText();
+    }
+
 
     public void GameOver()
     {

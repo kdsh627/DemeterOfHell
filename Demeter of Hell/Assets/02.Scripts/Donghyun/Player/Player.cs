@@ -49,7 +49,6 @@ public class Player : CreatureController
     {
         currentState.Update(this);
         Move();
-
     }
 
     private void Move()
@@ -164,9 +163,10 @@ public class Player : CreatureController
         UIManager.Instance.PlayerHpUIUpdate((int)Hp, (int)MaxHp); //형변환 다시 한번 체크해야함
     }
 
+
     protected override void OnDead()
     {
-
+        GameManager.Instance.PlayerDead();
     }
 
     //적에게 데미지 주기
