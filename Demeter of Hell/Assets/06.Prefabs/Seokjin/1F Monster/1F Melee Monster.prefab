@@ -17,7 +17,6 @@ GameObject:
   - component: {fileID: -2215065991834133764}
   - component: {fileID: 7022998443787853493}
   - component: {fileID: -6724822060361989562}
-  - component: {fileID: 6839118501285085273}
   m_Layer: 0
   m_Name: 1F Melee Monster
   m_TagString: Monster

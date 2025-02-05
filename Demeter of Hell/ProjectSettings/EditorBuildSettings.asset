@@ -12,8 +12,8 @@ EditorBuildSettings:
     path: Assets/05.Scenes/Donghyun/Round1_Test.unity
     guid: 1c65ff6bbd9a2594ba25ce4876e12512
   - enabled: 1
-    path: Assets/05.Scenes/Donghyun/Round2_Test.unity
-    guid: 9344ed561c2827f46aa224ba89fcc3df
+    path: Assets/05.Scenes/Seokjin/Round2_Seokjin.unity
+    guid: d78f168baeb2c8e43ab09297a52759f3
   - enabled: 1
     path: Assets/05.Scenes/Round3.unity
     guid: a2257dc1a6b545441b3b586a384a9755
@@ -32,6 +32,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/05.Scenes/Song/Round1_Song.unity
     guid: 5d479fdc37f9b5146865a72b94d7b977
+  - enabled: 1
+    path: Assets/05.Scenes/Donghyun/Round2_Test.unity
+    guid: 9344ed561c2827f46aa224ba89fcc3df
   - enabled: 1
     path: Assets/05.Scenes/Song/Round2_Song.unity
     guid: 9d1f8a01c6e235f41804acf86f80b0ae

@@ -95,6 +95,13 @@ public class PlantManager : MonoBehaviour
         }
     }
 
+    public void InitPlantData()
+    {
+        riceData.Init();
+        peaShootData.Init();
+        hpBuffData.Init();
+    }
+
     public bool PaySeed()
     {
         int Price = 0;

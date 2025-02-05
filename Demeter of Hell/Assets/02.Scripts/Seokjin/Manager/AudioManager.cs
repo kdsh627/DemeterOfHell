@@ -76,6 +76,7 @@ public class AudioManager : MonoBehaviour
     {
         if (isPlay)
         {
+            Debug.Log("켜짐");
             bgmPlayer.Play();
 
         }

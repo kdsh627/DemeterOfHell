@@ -10,6 +10,7 @@ namespace Donghyun.UI.Animation
         public RectTransform rectTransform;
         public Vector2 start, end;
         public float tweenDuration;
+        public Ease EaseType;
     }
 
     public enum AnimationType
