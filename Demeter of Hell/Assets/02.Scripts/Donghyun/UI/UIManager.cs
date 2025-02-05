@@ -25,6 +25,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text riceText;
     [SerializeField] private TMP_Text levelText;
     [SerializeField] private Image experienceUI;
+    [SerializeField] private GameObject respawnText;
 
     [Header("----- Plant -----")]
     [SerializeField] private GameObject[] plantUI;
@@ -158,5 +159,14 @@ public class UIManager : MonoBehaviour
             enforceCanvas.SetActive(false);
             Time.timeScale = 1.0f;
         }, UIInfo, AnimationType.Slide);
+    }
+
+    public void OpenRespawnText()
+    {
+        respawnText.SetActive(true);
+    }
+    public void CloseRespawnText()
+    {
+        respawnText.SetActive(false);
     }
 }

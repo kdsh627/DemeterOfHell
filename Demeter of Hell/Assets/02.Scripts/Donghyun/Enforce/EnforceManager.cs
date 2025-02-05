@@ -18,7 +18,6 @@ namespace Donghyun.Enforce
         [SerializeField] private PlantDataSO riceData;
         [SerializeField] private PlantDataSO peaShootData;
         [SerializeField] private PlantDataSO hpBuffData;
-        [SerializeField] private Player player;
 
         [Header("----- Player -----")]
         [SerializeField] private EnforceInfo playerDamage;
@@ -45,16 +44,18 @@ namespace Donghyun.Enforce
         public void EnforcePlayerMaxHp()
         {
             playerData.Hp += playerMaxHp.constant;
-            player.Hp = playerData.Hp;
-            player.MaxHp = playerData.Hp;
+            GameManager.Instance.player.GetComponent<Player>().Hp = playerData.Hp;
+            GameManager.Instance.player.GetComponent<Player>().MaxHp = playerData.Hp;
+            UIManager.Instance.PlayerHpUIUpdate(playerData.Hp, playerData.Hp);
             UIManager.Instance.ClosedEnforce();
         }
 
         public void EnforcePlayerMaxHpRandom()
         {
             playerData.Hp += UnityEngine.Random.Range(playerMaxHp.minRange, playerMaxHp.maxRange);
-            player.Hp = playerData.Hp;
-            player.MaxHp = playerData.Hp;
+            GameManager.Instance.player.GetComponent<Player>().Hp = playerData.Hp;
+            GameManager.Instance.player.GetComponent<Player>().MaxHp = playerData.Hp;
+            UIManager.Instance.PlayerHpUIUpdate(playerData.Hp, playerData.Hp);
             UIManager.Instance.ClosedEnforce();
         }
 
