@@ -187,18 +187,20 @@ public class MonsterAttackController : NavAgent2D
     {
         attackCollider.enabled = false;
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Flower"))
+        if (other.CompareTag("Player") || other.CompareTag("Flower"))
         {
-            CreatureController mc = collision.gameObject.GetComponent<CreatureController>();
-
-            mc.OnDamaged(attackDamage);
-
-            Debug.Log("hit");
+            
+            Player mc = other.GetComponent<Player>();
+            if (mc != null)
+            {
+                mc.OnDamaged(attackDamage); // 데미지 처리
+                
+            }
         }
     }
+    
 
     public bool AllMonstersDead()
     {

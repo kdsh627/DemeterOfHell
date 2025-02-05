@@ -13,7 +13,7 @@ public class Bullet : MonoBehaviour
         yield return new WaitForSeconds(5);
         PoolManager.Instance.Push(gameObject);
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("여기");
         float damage=1;
@@ -33,10 +33,10 @@ public class Bullet : MonoBehaviour
             damage = 3;
         }
 
-        if (collision.gameObject.CompareTag("Flower")|| collision.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Flower")|| other.gameObject.CompareTag("Player"))
         {
             Debug.Log(damage);
-            CreatureController mc = collision.gameObject.GetComponent<CreatureController>();
+            Player mc = other.gameObject.GetComponent<Player>();
             if (mc == null)
             {
                 Debug.Log("mc null");
