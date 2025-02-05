@@ -169,4 +169,9 @@ public class UIManager : MonoBehaviour
     {
         respawnText.SetActive(false);
     }
+
+    public void Exit()
+    {
+        Application.Quit();
+    }
 }
