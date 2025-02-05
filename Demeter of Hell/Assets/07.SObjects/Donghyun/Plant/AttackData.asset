@@ -18,3 +18,4 @@ MonoBehaviour:
   DamageBuff: 0
   HpBuff: 0
   Production: 0
+  Price: 3

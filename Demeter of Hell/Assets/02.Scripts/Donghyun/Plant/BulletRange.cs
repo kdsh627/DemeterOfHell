@@ -4,29 +4,65 @@ using DG.Tweening;
 public class BulletRange : MonoBehaviour
 {
     [SerializeField] private GameObject bullet;
-    private Transform bulletTransform;
+    [SerializeField] private float speed;
+    [SerializeField] private float maxTime;
+    [SerializeField] Transform bulletTransform;
+
+    private Transform targetTransform;
+    private Vector2 direction;
+    private float currentTime;
     bool isShoot;
 
     private void Awake()
     {
-        bulletTransform = gameObject.transform;
+        currentTime = maxTime;
+        isShoot = false;
+    }
+
+    private void Update()
+    {
+        if(isShoot) 
+        {
+            TimeUpdate();
+        }
+    }
+
+    private void TimeUpdate()
+    {
+        if (currentTime > Mathf.Epsilon)
+        {
+            currentTime -= Time.deltaTime;
+        }
+        else
+        {
+            currentTime = 0.0f;
+            ShootEnd();
+        }
+    }
+
+    private void Shoot(Transform transform)
+    {
+        isShoot = true;
+        bullet.SetActive(true);
+        targetTransform = transform;
+        direction = targetTransform.position - bulletTransform.position;
+        direction.Normalize();
+        bullet.GetComponent<Rigidbody2D>().AddForce(direction * speed);
+    }
+
+    public void ShootEnd()
+    {
+        bullet.transform.position = bulletTransform.position;
+        bullet.SetActive(false);
+        currentTime = maxTime;
         isShoot = false;
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        Debug.Log(collision.tag);
-
         if (!isShoot && collision.CompareTag("Monster"))
         {
-            isShoot = true;
-            bullet.SetActive(true);
-            transform.DOMove(collision.transform.position, 0.5f).OnComplete(() =>
-            {
-                isShoot = false;
-                bullet.transform.position = bulletTransform.position;
-                bullet.SetActive(false);
-            });
+            Shoot(collision.transform);
         }
     }
 }

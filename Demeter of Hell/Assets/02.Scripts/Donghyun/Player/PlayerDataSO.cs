@@ -1,5 +1,11 @@
 using UnityEngine;
-using UnityEngine.UIElements;
+
+public enum PlayerDataType
+{
+    Hp,
+    RegenerativePower,
+    MeleeAttackPower
+}
 
 [CreateAssetMenu(fileName = "PlayerData", menuName = "Scriptable Objects/PlayerData")]
 public class PlayerDataSO : ScriptableObject
@@ -34,6 +40,12 @@ public class PlayerDataSO : ScriptableObject
             ExperienceAmount++;
             CurrentExperienceAmount = 0;
             UIManager.Instance.LevelUIUpdate(Level);
+
+            //5레벨 단위로 강화창 오픈
+            if(Level % 5 == 0) 
+            { 
+                UIManager.Instance.OpenEnforce();
+            }
         }
         UIManager.Instance.ExperienceUIUpdate(CurrentExperienceAmount / (float)ExperienceAmount);
     }

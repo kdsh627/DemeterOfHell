@@ -14,6 +14,8 @@ public class Player : CreatureController
     private IPlayerState currentState;
     private PlayerDirection currentDirection;
     private bool isAttack;
+    private float direction;
+    private Vector2 translateVector;
 
     public float Speed => speed;
     public ItemDataSO ItemData => itemData;
@@ -31,12 +33,12 @@ public class Player : CreatureController
         MaxHp = playerData.Hp;
         Hp = playerData.Hp;
 
-        UIManager.Instance.PlayerHpUIUpdate((int)Hp);
+        UIManager.Instance.PlayerHpUIUpdate((int)Hp, (int)MaxHp);
 
         itemData.UpdateSeed(0);
         itemData.UpdateRice(0);
         UIManager.Instance.LevelUIUpdate(playerData.Level);
-        UIManager.Instance.ExperienceUIUpdate(0.0f);
+        playerData.UpdateExperience(0);
     }
 
     private void Update()
@@ -46,6 +48,37 @@ public class Player : CreatureController
     private void FixedUpdate()
     {
         currentState.Update(this);
+        Move();
+
+    }
+
+    private void Move()
+    {
+        if (Input.GetKey(KeyCode.D))
+        {
+            direction = 1.0f;
+            translateVector = new Vector2(direction * Time.fixedDeltaTime * speed, 0);
+        }
+        else if (Input.GetKey(KeyCode.A))
+        {
+            direction = -1.0f;
+            translateVector = new Vector2(direction * Time.fixedDeltaTime * speed, 0);
+        }
+        else if (Input.GetKey(KeyCode.S))
+        {
+            direction = -1.0f;
+            translateVector = new Vector2(0, direction * Time.fixedDeltaTime * speed);
+        }
+        else if (Input.GetKey(KeyCode.W))
+        {
+            direction = 1.0f;
+            translateVector = new Vector2(0, direction * Time.fixedDeltaTime * speed);
+        }
+        else
+        {
+            translateVector = Vector2.zero;
+        }
+        transform.Translate(translateVector);
     }
 
     private void SetState(IPlayerState newState, PlayerState state)
@@ -65,22 +98,22 @@ public class Player : CreatureController
         {
             SetState(new Attack_State(), PlayerState.Attack);
         }
-        else if (Input.GetKey(KeyCode.RightArrow))
+        else if (Input.GetKey(KeyCode.D))
         {
             ImageChange(PlayerDirection.RIGHT);
             SetState(new Walk_State(), PlayerState.Walk);
         }
-        else if (Input.GetKey(KeyCode.LeftArrow))
+        else if (Input.GetKey(KeyCode.A))
         {
             ImageChange(PlayerDirection.LEFT);
             SetState(new Walk_State(), PlayerState.Walk);
         }
-        else if (Input.GetKey(KeyCode.DownArrow))
+        else if (Input.GetKey(KeyCode.S))
         {
             ImageChange(PlayerDirection.DOWN);
             SetState(new Walk_State(), PlayerState.Walk);
         }
-        else if (Input.GetKey(KeyCode.UpArrow))
+        else if (Input.GetKey(KeyCode.W))
         {
             ImageChange(PlayerDirection.UP);
             SetState(new Walk_State(), PlayerState.Walk);
@@ -128,7 +161,7 @@ public class Player : CreatureController
     public override void OnDamaged(float damage)
     {
         base.OnDamaged(damage);
-        UIManager.Instance.PlayerHpUIUpdate((int)Hp); //형변환 다시 한번 체크해야함
+        UIManager.Instance.PlayerHpUIUpdate((int)Hp, (int)MaxHp); //형변환 다시 한번 체크해야함
     }
 
     protected override void OnDead()
@@ -137,11 +170,11 @@ public class Player : CreatureController
     }
 
     //적에게 데미지 주기
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void AttackMonster(Collider2D collision)
     {
-        if(collision.transform.CompareTag("Monster"))
+        if (collision.transform.CompareTag("Monster"))
         {
-            collision.transform.gameObject.GetComponent<CreatureController>().OnDamaged(playerData.MeleeAttackPower);
+            collision.GetComponent<CreatureController>().OnDamaged(playerData.MeleeAttackPower);
         }
     }
 }

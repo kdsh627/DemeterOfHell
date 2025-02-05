@@ -10,6 +10,7 @@ public class PlantDataSO : ScriptableObject
     public int DamageBuff; //공격력 버프
     public int HpBuff; //체력 회복량
     public int Production; //웨이브당 생산량
+    public int Price;
 
     public void Init()
     {
@@ -27,10 +28,7 @@ public class PlantDataSO : ScriptableObject
             case PlantType.Attack:
                 Damage = 1;
                 break;
-            case PlantType.PowerBuff:
-                DamageBuff = 1;
-                break;
-            case PlantType.HPBuff:
+            case PlantType.HpBuff:
                 HpBuff = 1;
                 break;
         }
