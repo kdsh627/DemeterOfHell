@@ -98,6 +98,7 @@ public class Spawner : MonoBehaviour
         }
         else if(GameManager.Instance.CurrentWave == 10)
         {
+            Debug.Log("보스 소환");
             Spawn(true);
         }
         

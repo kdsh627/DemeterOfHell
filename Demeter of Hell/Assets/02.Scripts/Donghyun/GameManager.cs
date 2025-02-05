@@ -120,6 +120,7 @@ public class GameManager : MonoBehaviour
     //웨이브 시작
     public void WaveStart()
     {
+        Debug.Log(currentWave);
         beginWave = true;
         currentTime = waveTimeLimit;
     }
@@ -133,7 +134,7 @@ public class GameManager : MonoBehaviour
         PlantManager.Instance.HarvestRice(); //수확
 
         //해당 라운드 씬 종료
-        if(currentWave >= maxWave)
+        if(currentWave > maxWave)
         {
             ChangeScene();
         }
