@@ -9,20 +9,20 @@ public class TargetManager : MonoBehaviour
     
     public List<Transform> targets = new List<Transform>();
 
-   /*
+   
     private void Awake()
     {
         // 싱글톤 초기화
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); 
+            //DontDestroyOnLoad(gameObject); 
         }
         else
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
     }
 
-    */
+    
 }
