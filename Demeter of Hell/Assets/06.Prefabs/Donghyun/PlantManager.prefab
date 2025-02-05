@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6148441514048386801}
-  - component: {fileID: 1340941061227670165}
   - component: {fileID: 3105791005936102938}
   m_Layer: 0
   m_Name: PlantManager
@@ -26,26 +25,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2518630847607067985}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 6643110722168890514}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1340941061227670165
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2518630847607067985}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0001e251e91c45e4db3b4a2046187c66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tilemap: {fileID: 0}
 --- !u!114 &3105791005936102938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58,7 +45,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d663547fa856efd4e8cd32eb40aa5b41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plantGroup: {fileID: 0}
+  riceData: {fileID: 11400000, guid: 3d3482f1f53b2184ea738180fd6fb9f6, type: 2}
+  peaShootData: {fileID: 11400000, guid: 50379132bf518de40994fe2fdbec4e11, type: 2}
+  hpBuffData: {fileID: 11400000, guid: 41795583a1964db4ebe56d1621e44c6a, type: 2}
+  plantGroup: {fileID: 5519811966206221547}
   plants:
   - maxValue: 5
     count: 0
@@ -69,3 +59,70 @@ MonoBehaviour:
   - maxValue: 5
     count: 0
     plant: {fileID: 49271492792515692, guid: 3b958f9117285084e9700765e3ef9589, type: 3}
+--- !u!1001 &8901248686176955238
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6148441514048386801}
+    m_Modifications:
+    - target: {fileID: 2861620322733019124, guid: 8af23d1bc48e5c841a855e8db7a0657b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2861620322733019124, guid: 8af23d1bc48e5c841a855e8db7a0657b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2861620322733019124, guid: 8af23d1bc48e5c841a855e8db7a0657b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2861620322733019124, guid: 8af23d1bc48e5c841a855e8db7a0657b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2861620322733019124, guid: 8af23d1bc48e5c841a855e8db7a0657b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2861620322733019124, guid: 8af23d1bc48e5c841a855e8db7a0657b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2861620322733019124, guid: 8af23d1bc48e5c841a855e8db7a0657b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2861620322733019124, guid: 8af23d1bc48e5c841a855e8db7a0657b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2861620322733019124, guid: 8af23d1bc48e5c841a855e8db7a0657b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2861620322733019124, guid: 8af23d1bc48e5c841a855e8db7a0657b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3971569281427142541, guid: 8af23d1bc48e5c841a855e8db7a0657b, type: 3}
+      propertyPath: m_Name
+      value: PlantGroup
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8af23d1bc48e5c841a855e8db7a0657b, type: 3}
+--- !u!1 &5519811966206221547 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3971569281427142541, guid: 8af23d1bc48e5c841a855e8db7a0657b, type: 3}
+  m_PrefabInstance: {fileID: 8901248686176955238}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6643110722168890514 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2861620322733019124, guid: 8af23d1bc48e5c841a855e8db7a0657b, type: 3}
+  m_PrefabInstance: {fileID: 8901248686176955238}
+  m_PrefabAsset: {fileID: 0}

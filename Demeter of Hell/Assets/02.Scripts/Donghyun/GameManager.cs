@@ -12,13 +12,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] private ItemDataSO itemData;
     [SerializeField] private PlayerDataSO playerData;
     [SerializeField] private TreeDataSO treeData;
+    [SerializeField] private TileHighlighter tileHighlighter;
 
     private int currentScene;
     private int currentRound;
     private int currentWave;
     private float currentTime;
     private bool beginWave;
-    private int monstersAmount;
 
     private static GameManager instance;
 
@@ -92,6 +92,7 @@ public class GameManager : MonoBehaviour
         beginWave = false;
         UIManager.Instance.WaveUIUpdate(currentWave, maxWave);
         PlantManager.Instance.SetPlantManagerInit();
+        UIManager.Instance.WaveEnd();
     }
 
     //웨이브 시작

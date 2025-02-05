@@ -172,8 +172,10 @@ public class Player : CreatureController
     //적에게 데미지 주기
     public void AttackMonster(Collider2D collision)
     {
+        Debug.Log("때리기");
         if (collision.transform.CompareTag("Monster"))
         {
+            Debug.Log("때리기");
             collision.GetComponent<CreatureController>().OnDamaged(playerData.MeleeAttackPower);
         }
     }

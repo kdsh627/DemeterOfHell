@@ -191,8 +191,8 @@ public class MonsterAttackController : NavAgent2D
     {
         if (other.CompareTag("Player") || other.CompareTag("Flower"))
         {
-            
-            Player mc = other.GetComponent<Player>();
+
+            CreatureController mc = other.GetComponent<CreatureController>();
             if (mc != null)
             {
                 mc.OnDamaged(attackDamage); // 데미지 처리

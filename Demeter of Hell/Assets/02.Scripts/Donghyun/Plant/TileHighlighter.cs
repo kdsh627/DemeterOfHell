@@ -4,18 +4,27 @@ using Types;
 
 public class TileHighlighter : MonoBehaviour
 {
-    [SerializeField] private Tilemap tilemap;
+    public Tilemap tilemap;
 
     private Color highlightColor = new Color(1, 1, 1, 1);
     private Color defaultColor = new Color(1, 1, 1, 0);
     private Vector3Int previousHighlightedCell; // 이전에 강조한 셀
 
-    void Update()
+    private void Awake()
+    {
+        SetGrid();
+    }
+    private void Update()
     {
         if (!GameManager.Instance.BeginWave) //웨이브 중이 아닐때만
         {
             HighlightCell();
         }
+    }
+
+    public void SetGrid()
+    {
+        tilemap = GameObject.FindGameObjectWithTag("SpawnArea").GetComponent<Tilemap>();
     }
 
     private void HighlightCell()

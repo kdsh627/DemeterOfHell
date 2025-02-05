@@ -36,7 +36,7 @@ public class Bullet : MonoBehaviour
         if (other.gameObject.CompareTag("Flower")|| other.gameObject.CompareTag("Player"))
         {
             Debug.Log(damage);
-            Player mc = other.gameObject.GetComponent<Player>();
+            CreatureController mc = other.gameObject.GetComponent<CreatureController>();
             if (mc == null)
             {
                 Debug.Log("mc null");

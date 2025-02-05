@@ -22,7 +22,7 @@ public class PlayerDataSO : ScriptableObject
 
     public void Init()
     {
-        Hp = 100;
+        Hp = 20;
         Level = 1;
         ExperienceAmount = 10;
         CurrentExperienceAmount = 0;

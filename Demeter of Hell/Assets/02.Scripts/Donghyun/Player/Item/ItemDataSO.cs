@@ -11,7 +11,7 @@ public class ItemDataSO : ScriptableObject
     public void Init()
     {
         RiceValue = 0;
-        SeedValue = 0;
+        SeedValue = 5;
     }
 
     public void UpdateRice(int value)
