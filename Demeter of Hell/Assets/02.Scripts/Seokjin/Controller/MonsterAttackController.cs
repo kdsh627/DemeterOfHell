@@ -14,16 +14,21 @@ public class MonsterAttackController : NavAgent2D
 
 
     private void Start()
-    {
-
+    {/*
         attackCollider = GetComponent<CircleCollider2D>();
+       
         
         attackCollider.enabled = false; // 초기에는 비활성화
-
+        */
     }
     public void OnEnable()
     {
         isDead = false;
+        attackCollider = GetComponent<CircleCollider2D>();
+
+
+
+        attackCollider.enabled = false;
         GetComponent<BoxCollider2D>().enabled = true;
         if (1 <= GameManager.Instance.CurrentWave && GameManager.Instance.CurrentWave < 5)
         {
@@ -180,6 +185,7 @@ public class MonsterAttackController : NavAgent2D
 
     public void MeleeAttack()
     {
+        AudioManager.Instance.PlaySfx(AudioManager.Sfx.MonsterAttack);
         attackCollider.enabled = true;  // 특정 프레임에서 공격 활성화
         Invoke(nameof(DisableAttack), 0.1f); // 짧은 시간 후 비활성화
     }
@@ -192,11 +198,13 @@ public class MonsterAttackController : NavAgent2D
     {
         if (other.CompareTag("Player") || other.CompareTag("Flower"))
         {
+            Debug.Log("플레이어 때림");
             CreatureController mc = other.GetComponent<CreatureController>();
             if (mc != null)
             {
+                Debug.Log("if 문"+attackDamage);
                 mc.OnDamaged(attackDamage); // 데미지 처리
-                AudioManager.Instance.PlaySfx(AudioManager.Sfx.PlayerHit);
+                //AudioManager.Instance.PlaySfx(AudioManager.Sfx.MonsterAttack);
             }
         }
     }

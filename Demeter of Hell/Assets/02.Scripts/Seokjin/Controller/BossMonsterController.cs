@@ -19,14 +19,14 @@ public class BossMonsterController : MonsterAttackController
         index = Random.Range(0, 3); //패턴의 수 만큼 넣어주세요
 
         //디버그용
-
+        index = 0;
 
         Debug.Log("attack 들어옴");
         anim.SetInteger("Pattern Index", index);
         Debug.Log(index);
         currentCooltime = attackCooltime;
 
-        AudioManager.Instance.PlaySfx(AudioManager.Sfx.MonsterAttack);
+        
     }
 
     public void PatternEnd()
@@ -37,6 +37,7 @@ public class BossMonsterController : MonsterAttackController
 
     public void FiveProjAttack()
     {
+        AudioManager.Instance.PlaySfx(AudioManager.Sfx.MonsterAttack);
         int projectileCount = 5; // 총 5개의 투사체 발사
         float spreadAngle = 10f; // 좌우로 퍼지는 각도 (각 탄환 간의 각도 차이)
 
@@ -60,6 +61,7 @@ public class BossMonsterController : MonsterAttackController
 
     public void StartSummonMonster()
     {
+        AudioManager.Instance.PlaySfx(AudioManager.Sfx.MonsterAttack);
         StartCoroutine(SummonMonsterCorutine());
     }
 
@@ -84,7 +86,7 @@ public class BossMonsterController : MonsterAttackController
 
     public void ShootProjtoTargetRandom()
     {
-
+        AudioManager.Instance.PlaySfx(AudioManager.Sfx.MonsterAttack);
         int projectileCount = 5; // 총 5개의 투사체 발사
         float minSpreadAngle = -15; // 최소 각도 (왼쪽)
         float maxSpreadAngle = 15;  // 최대 각도 (오른쪽)
@@ -109,7 +111,7 @@ public class BossMonsterController : MonsterAttackController
 
     public void ShootProjAroundRandom()
     {
-
+        AudioManager.Instance.PlaySfx(AudioManager.Sfx.MonsterAttack);
         int projectileCount = 5; // 총 5개의 투사체 발사
         float minSpreadAngle = 0; // 최소 각도 (왼쪽)
         float maxSpreadAngle = 360;  // 최대 각도 (오른쪽)

@@ -15,7 +15,7 @@ public class Bullet : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("여기");
+        
         float damage=1;
         if (1 <= GameManager.Instance.CurrentWave && GameManager.Instance.CurrentWave < 5)
         {
