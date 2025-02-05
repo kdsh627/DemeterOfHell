@@ -3,14 +3,8 @@ using UnityEngine;
 public class HpBuff : CreatureController
 {
     [SerializeField] private PlantDataSO hpBuffData;
-
-    public static int Production;
-    public static int Price;
-
-    void Start()
+    void Awake()
     {
-        Production = hpBuffData.Price;
-        Price = hpBuffData.Price;
         Hp = hpBuffData.Hp;
         MaxHp = hpBuffData.Hp;
     }

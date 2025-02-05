@@ -9,6 +9,6 @@ public class TreeDataSO : ScriptableObject
 
     public void Init()
     {
-        Hp = 10;
+        Hp = 100;
     }
 }

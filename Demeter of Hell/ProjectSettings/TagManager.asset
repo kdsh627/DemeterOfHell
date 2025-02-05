@@ -9,6 +9,7 @@ TagManager:
   - Rice
   - Seed
   - Experience
+  - SpawnArea
   layers:
   - Default
   - TransparentFX

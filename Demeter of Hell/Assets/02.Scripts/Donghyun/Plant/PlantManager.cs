@@ -1,6 +1,7 @@
 using UnityEngine;
 using Types;
 using System;
+using UnityEngine.Tilemaps;
 
 [Serializable]
 public struct PlantInfo
@@ -12,6 +13,12 @@ public struct PlantInfo
 
 public class PlantManager : MonoBehaviour
 {
+    [Header("----- Data -----")]
+    [SerializeField] private PlantDataSO riceData;
+    [SerializeField] private PlantDataSO peaShootData;
+    [SerializeField] private PlantDataSO hpBuffData;
+
+    [Header("----- Plants -----")]
     [SerializeField] private GameObject plantGroup;
     [SerializeField] private PlantInfo[] plants;
 
@@ -39,7 +46,6 @@ public class PlantManager : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
-            DontDestroyOnLoad(plantGroup);
         }
         // 인스턴스가 이미 할당돼있다면(2개 이상이라면) 파괴
         else
@@ -95,13 +101,13 @@ public class PlantManager : MonoBehaviour
         switch (currentType)
         {
             case PlantType.Rice:
-                Price = Rice.Price;
+                Price = riceData.Price;
                 break;
             case PlantType.Attack:
-                Price = Attack.Price;
+                Price = peaShootData.Price;
                 break;
             case PlantType.HpBuff:
-                Price = HpBuff.Price;
+                Price = hpBuffData.Price;
                 break;
         }
 
@@ -117,29 +123,27 @@ public class PlantManager : MonoBehaviour
             switch ((PlantType)i)
             {
                 case PlantType.Rice:
-                    item.UpdateSeed(plants[i].count * Rice.Price);
+                    item.UpdateSeed(plants[i].count * riceData.Price);
                     break;
                 case PlantType.Attack:
-                    item.UpdateSeed(plants[i].count * Attack.Price);
+                    item.UpdateSeed(plants[i].count * peaShootData.Price);
                     break;
                 case PlantType.HpBuff:
-                    item.UpdateSeed(plants[i].count * HpBuff.Price);
+                    item.UpdateSeed(plants[i].count * hpBuffData.Price);
                     break;
             }
             plants[i].count = 0;
         }
-
         for(int i = plantGroup.transform.childCount - 1; i >= 0; --i)
         {
             Destroy(plantGroup.transform.GetChild(i));
         }
     }
 
-
     //벼 수확
     public void HarvestRice()
     {
-        GameManager.Instance.Item.UpdateRice(plants[(int)PlantType.Rice].count * Rice.Production);
+        GameManager.Instance.Item.UpdateRice(plants[(int)PlantType.Rice].count * riceData.Price);
     }
 
     public void ActivateHpBuff()

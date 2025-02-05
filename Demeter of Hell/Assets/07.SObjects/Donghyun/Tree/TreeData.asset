@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6a7955e17afe4c469cdd0fe927a673d, type: 3}
   m_Name: TreeData
   m_EditorClassIdentifier: 
-  Hp: 20
+  Hp: 100

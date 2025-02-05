@@ -7,7 +7,6 @@ using Donghyun.UI.Animation;
 public class UIManager : MonoBehaviour
 {
     [Header("----- UI -----")]
-    [SerializeField] private GameObject totalCanvas;
     [SerializeField] private GameObject MainUI;
 
     [Header("----- Wave -----")]
@@ -53,7 +52,6 @@ public class UIManager : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
-            DontDestroyOnLoad(totalCanvas);
         }
         // 인스턴스가 이미 할당돼있다면(2개 이상이라면) 파괴
         else
@@ -103,13 +101,13 @@ public class UIManager : MonoBehaviour
     public void TreeHpUIUpdate(int hp, int maxHp)
     {
         treeHpText.text = string.Format("Tree HP : {0:D2} / {1:D2}", hp, maxHp);
-        treeHpFill.fillAmount = maxHp / hp;
+        treeHpFill.fillAmount = hp / (float)maxHp;
     }
 
     public void PlayerHpUIUpdate(int hp, int maxHp)
     {
         playerHpText.text = string.Format("Player HP : {0:D2} / {1:D2}", hp, maxHp);
-        playerHpFill.fillAmount = maxHp / hp;
+        playerHpFill.fillAmount = hp / (float)maxHp;
     }
 
     public void ExperienceUIUpdate(float experience)

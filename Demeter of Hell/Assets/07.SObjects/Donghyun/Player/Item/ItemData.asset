@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: ItemData
   m_EditorClassIdentifier: 
   RiceValue: 0
-  SeedValue: 0
+  SeedValue: 5
