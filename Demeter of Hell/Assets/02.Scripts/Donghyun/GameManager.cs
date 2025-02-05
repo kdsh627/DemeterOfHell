@@ -57,6 +57,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         RoundStart(); //테스트 코드
+        AudioManager.Instance.PlayBgm(true);
     }
 
     private void Update()
@@ -77,7 +78,10 @@ public class GameManager : MonoBehaviour
         }
 
         SceneManager.LoadScene(++currentScene);
-        if(currentScene >= 1 && currentScene < maxScene)
+
+        AudioManager.Instance.PlayBgm(true);
+
+        if (currentScene >= 1 && currentScene < maxScene)
         {
             UIManager.Instance.SetActiveMainUI();
             RoundStart();
@@ -126,12 +130,18 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        treeData.Init();
-        itemData.Init();
-        playerData.Init();
+        InitGameData();
 
         currentScene = 0;
         ChangeScene();
+    }
+    
+    public void InitGameData()
+    {
+        treeData.Init();
+        itemData.Init();
+        playerData.Init();
+        PlantManager.Instance.InitPlantData();
     }
 
     //타이머 업데이트
