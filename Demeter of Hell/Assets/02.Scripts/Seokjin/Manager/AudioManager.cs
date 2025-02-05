@@ -18,7 +18,7 @@ public class AudioManager : MonoBehaviour
     int channelIndex;//현재 재생중인 채널 인덱스
 
     public enum Sfx 
-    {
+    {   
         MonsterDead, MonsterIdle, MonsterAttack, MonsterHit, MonsterBulletDestroy,
         
         PlayerDead, PlayerHit, PlayerRun, PlayerAttack, PlayerEatSomething,
@@ -32,6 +32,7 @@ public class AudioManager : MonoBehaviour
     {
         
         Init();
+        /*
         if (Instance == null)
         {
             Instance = this;
@@ -41,10 +42,12 @@ public class AudioManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        */
     }
 
     void Init()
     {
+        Debug.Log("adad");
         // 배경음 플레이어 초기화
         GameObject bgmObject = new GameObject("BgmPlayer");//코드안에서 오브젝트 만들기 가능. 따옴표 안이 오브젝트 이름
         bgmObject.transform.parent = transform;// 윗줄에서 만든 플레이어를 오디오 매니져 오브젝트에 자식으로 넣음

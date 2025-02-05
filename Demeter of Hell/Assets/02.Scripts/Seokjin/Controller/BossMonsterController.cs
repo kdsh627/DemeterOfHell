@@ -26,6 +26,7 @@ public class BossMonsterController : MonsterAttackController
         Debug.Log(index);
         currentCooltime = attackCooltime;
 
+        AudioManager.Instance.PlaySfx(AudioManager.Sfx.MonsterAttack);
     }
 
     public void PatternEnd()
@@ -79,6 +80,56 @@ public class BossMonsterController : MonsterAttackController
         GameObject monster = PoolManager.Instance.Pop(monsters[index]);
         monster.transform.position = transform.position + RandomPosition;
 
+    }
+
+    public void ShootProjtoTargetRandom()
+    {
+
+        int projectileCount = 5; // 총 5개의 투사체 발사
+        float minSpreadAngle = -15; // 최소 각도 (왼쪽)
+        float maxSpreadAngle = 15;  // 최대 각도 (오른쪽)
+
+        for (int i = 0; i < projectileCount; i++)
+        {
+            GameObject projectile = PoolManager.Instance.Pop(projectilePrefab);
+            projectile.transform.position = transform.position;
+
+            // 랜덤 각도 계산
+            float randomAngle = Random.Range(minSpreadAngle, maxSpreadAngle);
+
+            // 회전 적용
+            Vector3 direction = Quaternion.Euler(0, 0, randomAngle) * (target.position - transform.position).normalized;
+
+            if (projectile.TryGetComponent(out Rigidbody2D rb))
+            {
+                rb.linearVelocity = direction * 5f; // 투사체 속도 조정
+            }
+        }
+    }
+
+    public void ShootProjAroundRandom()
+    {
+
+        int projectileCount = 5; // 총 5개의 투사체 발사
+        float minSpreadAngle = 0; // 최소 각도 (왼쪽)
+        float maxSpreadAngle = 360;  // 최대 각도 (오른쪽)
+
+        for (int i = 0; i < projectileCount; i++)
+        {
+            GameObject projectile = PoolManager.Instance.Pop(projectilePrefab);
+            projectile.transform.position = transform.position;
+
+            // 랜덤 각도 계산
+            float randomAngle = Random.Range(minSpreadAngle, maxSpreadAngle);
+
+            // 회전 적용
+            Vector3 direction = Quaternion.Euler(0, 0, randomAngle) * (target.position - transform.position).normalized;
+
+            if (projectile.TryGetComponent(out Rigidbody2D rb))
+            {
+                rb.linearVelocity = direction * 5f; // 투사체 속도 조정
+            }
+        }
     }
 }
 

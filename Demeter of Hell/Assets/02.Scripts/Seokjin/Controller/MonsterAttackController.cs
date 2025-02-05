@@ -143,7 +143,7 @@ public class MonsterAttackController : NavAgent2D
     
     protected virtual void Attack() {
         anim.SetTrigger("Attack");
-        
+        AudioManager.Instance.PlaySfx(AudioManager.Sfx.MonsterAttack);
         currentCooltime = attackCooltime;
     
     }
@@ -155,13 +155,14 @@ public class MonsterAttackController : NavAgent2D
         anim.SetTrigger("Dead");
         gameObject.GetComponent<Collider2D>().enabled = false;
         StartCoroutine(DelayTime());
-        Debug.Log(Spawner.Instance.monsterCount + "+" + Spawner.Instance.maxMonsterCount);
+
+        AudioManager.Instance.PlaySfx(AudioManager.Sfx.MonsterDead);
         if(Spawner.Instance.monsterCount>= Spawner.Instance.maxMonsterCount)
         {
 
             if (AllMonstersDead())
             {
-                Debug.Log("all monster dead");
+                GameManager.Instance.WaveEnd();
             }
             
         }
@@ -192,11 +193,11 @@ public class MonsterAttackController : NavAgent2D
         if (other.CompareTag("Player") || other.CompareTag("Flower"))
         {
             
-            Player mc = other.GetComponent<Player>();
+            CreatureController mc = other.GetComponent<CreatureController>();
             if (mc != null)
             {
                 mc.OnDamaged(attackDamage); // 데미지 처리
-                
+                AudioManager.Instance.PlaySfx(AudioManager.Sfx.PlayerHit);
             }
         }
     }
@@ -213,4 +214,5 @@ public class MonsterAttackController : NavAgent2D
         return false;
 
     }
+
 }

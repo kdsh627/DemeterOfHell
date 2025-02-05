@@ -9,6 +9,7 @@ public class TargetManager : MonoBehaviour
     
     public List<Transform> targets = new List<Transform>();
 
+   /*
     private void Awake()
     {
         // 싱글톤 초기화
@@ -22,4 +23,6 @@ public class TargetManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    */
 }
