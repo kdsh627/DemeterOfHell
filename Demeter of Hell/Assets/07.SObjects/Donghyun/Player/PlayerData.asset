@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerData
   m_EditorClassIdentifier: 
   Hp: 20
-  Level: 1
+  Level: 0
   ExperienceAmount: 10
   CurrentExperienceAmount: 0
   RegenerativePower: 1

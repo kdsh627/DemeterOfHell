@@ -38,7 +38,7 @@ public class Spawner : MonoBehaviour
         //if (!GameManager.instance.isLive)
         //        return;
 
-        if (isWaveStart == false ) return;
+        if (isWaveStart == false) return;
 
         timer += Time.deltaTime;
 

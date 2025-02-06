@@ -7,9 +7,8 @@ public class MonsterAttackController : NavAgent2D
     public float attackRange = 10f;     // 공격 범위
     bool isDead = false;
     public CircleCollider2D attackCollider;
-    
 
-
+    bool isAttack = false;
 
     private void Start()
     {/*
@@ -23,7 +22,6 @@ public class MonsterAttackController : NavAgent2D
     {
         isDead = false;
         attackCollider = GetComponent<CircleCollider2D>();
-
 
 
         attackCollider.enabled = false;
@@ -153,24 +151,25 @@ public class MonsterAttackController : NavAgent2D
 
     protected override void OnDead()
     {
-        
-        base.OnDead();
-        anim.SetTrigger("Dead");
-        gameObject.GetComponent<Collider2D>().enabled = false;
-        StartCoroutine(DelayTime());
-
-        AudioManager.Instance.PlaySfx(AudioManager.Sfx.MonsterDead);
-        if(Spawner.Instance.monsterCount>= Spawner.Instance.maxMonsterCount)
+        if(!isDead)
         {
+            isDead = true;
+            base.OnDead();
+            anim.SetTrigger("Dead");
+            gameObject.GetComponent<Collider2D>().enabled = false;
+            StartCoroutine(DelayTime());
 
-            if (AllMonstersDead())
+            AudioManager.Instance.PlaySfx(AudioManager.Sfx.MonsterDead);
+            if (Spawner.Instance.monsterCount >= Spawner.Instance.maxMonsterCount)
             {
-                GameManager.Instance.WaveEnd();
-            }
-            
-        }
-       
 
+                if (AllMonstersDead())
+                {
+                    GameManager.Instance.WaveEnd();
+                }
+
+            }
+        }
     }
  
     IEnumerator DelayTime()
@@ -196,13 +195,18 @@ public class MonsterAttackController : NavAgent2D
     {
         if (other.CompareTag("Player") || other.CompareTag("Flower"))
         {
-            Debug.Log("플레이어 때림");
-            CreatureController mc = other.GetComponent<CreatureController>();
-            if (mc != null)
+            if(!isAttack)
             {
-                Debug.Log("if 문"+attackDamage);
-                mc.OnDamaged(attackDamage); // 데미지 처리
-                //AudioManager.Instance.PlaySfx(AudioManager.Sfx.MonsterAttack);
+                isAttack = true;
+                Debug.Log("플레이어 때림");
+                CreatureController mc = other.GetComponent<CreatureController>();
+                if (mc != null)
+                {
+                    Debug.Log("if 문" + attackDamage);
+                    mc.OnDamaged(attackDamage); // 데미지 처리
+                                                //AudioManager.Instance.PlaySfx(AudioManager.Sfx.MonsterAttack);
+                }
+                isAttack = false;
             }
         }
     }

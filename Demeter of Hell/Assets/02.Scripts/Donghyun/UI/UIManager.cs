@@ -155,7 +155,7 @@ public class UIManager : MonoBehaviour
 
     public void ClosedEnforce()
     {
-        UIAnimationManager.OpenUI(() =>
+        UIAnimationManager.CloseUI(() =>
         {
             enforceCanvas.SetActive(false);
             Time.timeScale = 1.0f;

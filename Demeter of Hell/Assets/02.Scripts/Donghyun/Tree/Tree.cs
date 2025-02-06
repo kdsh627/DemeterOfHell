@@ -4,7 +4,7 @@ public class Tree : CreatureController
 {
     [SerializeField] private TreeDataSO treeData;
 
-    private float time = 1.0f;
+    private float time = 5.0f;
     private float invincibleTime = 0.3f;
 
     private bool isInvincible;
