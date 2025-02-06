@@ -5,14 +5,14 @@ using UnityEngine.UI;
 
 public class Title : MonoBehaviour
 {
-    [SerializeField] private UIInformation characterInfo;
     [SerializeField] private UIInformation hornInfo;
-    [SerializeField] private UIInformation hellTextInfo;
     [SerializeField] private UIInformation riceInfo;
-    [SerializeField] private UIInformation demeterTextInfo;
+    [SerializeField] private UIInformation TextInfo;
     [SerializeField] private UIInformation hoeInfo;
     [SerializeField] private UIInformation gameStartInfo;
+    [SerializeField] private UIInformation titleInfo;
 
+    [SerializeField] GameObject StartButton;
     private void Start()
     {
         Sequence seq = DOTween.Sequence();
@@ -25,8 +25,13 @@ public class Title : MonoBehaviour
             .Join(riceInfo.rectTransform.DOScale(riceInfo.end, riceInfo.tweenDuration).SetEase(riceInfo.EaseType).SetDelay(0.3f))
         */
 
-        seq.Append(gameStartInfo.rectTransform.GetComponent<Image>().DOFade(1.0f, gameStartInfo.tweenDuration))
-           .Join(gameStartInfo.rectTransform.DOScale(gameStartInfo.end, gameStartInfo.tweenDuration).SetEase(gameStartInfo.EaseType).SetLoops(-1, LoopType.Yoyo));
+        seq.Append(TextInfo.rectTransform.DOAnchorPos(TextInfo.end, TextInfo.tweenDuration).SetEase(TextInfo.EaseType))
+            .Append(riceInfo.rectTransform.DOScale(riceInfo.end, riceInfo.tweenDuration).SetEase(riceInfo.EaseType))
+            .Join(hoeInfo.rectTransform.DOScale(hoeInfo.end, hoeInfo.tweenDuration).SetEase(hoeInfo.EaseType).SetDelay(0.1f))
+            .Append(hornInfo.rectTransform.DOScaleY(hornInfo.end.y, hornInfo.tweenDuration).SetEase(hornInfo.EaseType))
+            .Append(gameStartInfo.rectTransform.GetComponent<Image>().DOFade(1.0f, gameStartInfo.tweenDuration).OnComplete(() => { StartButton.SetActive(true); }))
+            .Join(gameStartInfo.rectTransform.DOScale(gameStartInfo.end, gameStartInfo.tweenDuration).SetEase(gameStartInfo.EaseType).SetLoops(-1, LoopType.Yoyo))
+            .Join(titleInfo.rectTransform.DOAnchorPos(titleInfo.end, titleInfo.tweenDuration).SetEase(titleInfo.EaseType).SetLoops(-1, LoopType.Yoyo));
 
     }
 }

@@ -123,6 +123,11 @@ public class Player : CreatureController
         }
     }
 
+    public void Reset()
+    {
+        SetState(new Idle_State(), PlayerState.Idle);
+    }
+
     public void AnimatorChange(string temp)
     {
         if (temp == "Attack")
@@ -153,6 +158,7 @@ public class Player : CreatureController
         }
 
         playerImage[(int)currentDirection].SetActive(true);
+
 
         currentAnimator = animator[(int)currentDirection];
     }

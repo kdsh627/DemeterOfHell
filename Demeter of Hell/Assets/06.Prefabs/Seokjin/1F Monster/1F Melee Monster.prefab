@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: -2215065991834133764}
   - component: {fileID: 7022998443787853493}
   - component: {fileID: -6724822060361989562}
+  - component: {fileID: 6839118501285085273}
   m_Layer: 0
   m_Name: 1F Melee Monster
   m_TagString: Monster
@@ -299,7 +300,7 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4734820251503001246}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -326,6 +327,6 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.039031982, y: -0.01951605}
-  m_Size: {x: 1.369524, y: 1.4866201}
+  m_Offset: {x: -0.12, y: 0.04}
+  m_Size: {x: 0.74, y: 1.16}
   m_Direction: 0

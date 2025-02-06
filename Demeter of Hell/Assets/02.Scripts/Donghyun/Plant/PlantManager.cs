@@ -1,6 +1,8 @@
 using UnityEngine;
 using Types;
 using System;
+using NUnit.Framework;
+using System.Collections.Generic;
 
 [Serializable]
 public struct PlantInfo
@@ -25,7 +27,7 @@ public class PlantManager : MonoBehaviour
     private static PlantManager instance;
 
     public PlantType CurrentPlantType => currentType;
-
+    private List<GameObject> plantsObj;
     public static PlantManager Instance
     {
         get
@@ -37,6 +39,7 @@ public class PlantManager : MonoBehaviour
 
     private void Awake()
     {
+        plantsObj = new List<GameObject>();
         currentType = PlantType.Rice;
 
         //인스턴스가 비어있다면 할당해주고, 
@@ -67,11 +70,11 @@ public class PlantManager : MonoBehaviour
                 currentType = PlantType.Attack;
                 UIManager.Instance.ChangeCurrentPlantUI(currentType);
             }
-            else if (Input.GetKey(KeyCode.Alpha3))
-            {
-                currentType = PlantType.HpBuff;
-                UIManager.Instance.ChangeCurrentPlantUI(currentType);
-            }
+            //else if (Input.GetKey(KeyCode.Alpha3))
+            //{
+            //    currentType = PlantType.HpBuff;
+            //    UIManager.Instance.ChangeCurrentPlantUI(currentType);
+            //}
         }
     }
 
@@ -88,6 +91,7 @@ public class PlantManager : MonoBehaviour
         {
             GameObject go = Instantiate(plants[(int)currentType].plant, plantGroup.transform);
 
+            plantsObj.Add(go);
             go.transform.position = Position;
 
             TargetManager.Instance.targets.Add(go.transform); //타겟 매니저에 해당 타겟 추가
@@ -142,10 +146,12 @@ public class PlantManager : MonoBehaviour
             }
             plants[i].count = 0;
         }
-        for(int i = plantGroup.transform.childCount - 1; i >= 0; --i)
+
+        for (int i = plantsObj.Count - 1; i >= 0; --i)
         {
-            Destroy(plantGroup.transform.GetChild(i));
+            Destroy(plantsObj[i]);
         }
+        plantsObj.Clear();
     }
 
     //벼 수확

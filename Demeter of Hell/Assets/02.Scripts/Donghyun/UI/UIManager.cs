@@ -7,7 +7,8 @@ using Donghyun.UI.Animation;
 public class UIManager : MonoBehaviour
 {
     [Header("----- UI -----")]
-    [SerializeField] private GameObject MainUI;
+    [SerializeField] private GameObject mainUI;
+    [SerializeField] private GameObject totalUI;
 
     [Header("----- Wave -----")]
     [SerializeField] private TMP_Text timerText;
@@ -44,6 +45,8 @@ public class UIManager : MonoBehaviour
             return instance;
         }
     }
+
+    public GameObject TotalUI => totalUI;
 
     private void Awake()
     {
@@ -86,7 +89,7 @@ public class UIManager : MonoBehaviour
 
     public void SetActiveMainUI()
     {
-        MainUI.SetActive(true);
+        mainUI.SetActive(true);
     }
 
     public void RiceUIUpdate(int rice)
@@ -123,10 +126,10 @@ public class UIManager : MonoBehaviour
 
     public void ChangeCurrentPlantUI(PlantType type)
     {
-        //plantUI[0].SetActive(false);
-        //plantUI[1].SetActive(false);
+        plantUI[0].SetActive(false);
+        plantUI[1].SetActive(false);
 
-        //plantUI[(int)type].SetActive(true);
+        plantUI[(int)type].SetActive(true);
     }
 
     public void WaveStartButton()

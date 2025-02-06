@@ -11,6 +11,7 @@ TagManager:
   - Experience
   - SpawnArea
   - AudioManager
+  - Spawner
   layers:
   - Default
   - TransparentFX
@@ -62,6 +63,9 @@ TagManager:
     locked: 0
   - name: Tree
     uniqueID: 1697785075
+    locked: 0
+  - name: UI
+    uniqueID: 466939187
     locked: 0
   m_RenderingLayers:
   - Default

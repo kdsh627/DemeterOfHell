@@ -1,10 +1,10 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using Types;
 public class GameManager : MonoBehaviour
 {
     public GameObject player;
-
+    public GameObject spawner;
     [SerializeField] private int maxWave;
     [SerializeField] private int maxRound;
     [SerializeField] private float waveTimeLimit;
@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     private bool beginWave;
     private float currentDeadTime;
     private bool isDead;
+    private bool isRoundClear;
 
     private static GameManager instance;
 
@@ -84,14 +85,7 @@ public class GameManager : MonoBehaviour
     //씬 변경
     public void ChangeScene()
     {
-        if(currentScene >= 1)
-        {
-            PlantManager.Instance.SettlePlant(itemData);
-        }
-
         SceneManager.LoadScene(++currentScene);
-
-        GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>().PlayBgm(true);
 
         if (currentScene >= 1 && currentScene < maxScene)
         {
@@ -103,13 +97,41 @@ public class GameManager : MonoBehaviour
     //해당 라운드 씬 시작
     public void RoundStart()
     {
+        UIManager.Instance.TotalUI.SetActive(true);
+        Invoke("SetSpawner", 0.1f);
+        Invoke("SetPlayer", 0.1f);
+        Invoke("SetAudio", 0.1f);
         currentWave = 1;
         currentRound = currentScene;
         beginWave = false;
-        SetPlayer();
-        PlantManager.Instance.SetPlantManagerInit();
+        if (!isRoundClear)
+        {
+            Debug.Log("식물 초기화");
+            PlantManager.Instance.SetPlantManagerInit();
+        }
+        else
+        {
+            isRoundClear = false;
+        }
         UIManager.Instance.WaveEnd();
         UIManager.Instance.WaveUIUpdate(currentWave, maxWave);
+
+    }
+
+    private void SetAudio()
+    {
+        GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>().PlayBgm(true);
+    }
+
+    private void SetSpawner()
+    {
+        spawner = GameObject.FindGameObjectWithTag("Spawner");
+        Debug.Log(spawner);
+    }
+
+    public void Spawn()
+    {
+        spawner.GetComponent<Spawner>().NewRound();
     }
 
     //웨이브 시작
@@ -126,11 +148,14 @@ public class GameManager : MonoBehaviour
         beginWave = false;
         currentWave += 1;
 
+        UIManager.Instance.TimerUIUpdate(0.0f);
         PlantManager.Instance.HarvestRice(); //수확
 
         //해당 라운드 씬 종료
         if(currentWave > maxWave)
         {
+            isRoundClear = true;
+            PlantManager.Instance.SettlePlant(itemData);
             ChangeScene();
         }
         else
@@ -166,6 +191,7 @@ public class GameManager : MonoBehaviour
     {
         isDead = false;
         Player playerComponent = player.GetComponent<Player>();
+        playerComponent.Reset();
         playerComponent.Hp = playerComponent.PlayerData.Hp;
         playerComponent.MaxHp = playerComponent.PlayerData.Hp;
         player.SetActive(true);

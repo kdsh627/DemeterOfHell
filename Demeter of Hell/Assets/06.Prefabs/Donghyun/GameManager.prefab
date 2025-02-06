@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6422504731533674952}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -44,10 +44,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6473d15990330f45a0169298f37ab68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxWave: 1
+  player: {fileID: 0}
+  spawner: {fileID: 0}
+  maxWave: 10
   maxRound: 2
-  waveTimeLimit: 5
+  waveTimeLimit: 300
   maxScene: 4
   itemData: {fileID: 11400000, guid: 1348e4b3d9fe47c4a9beca5e5ae516b7, type: 2}
   playerData: {fileID: 11400000, guid: d390cb51fa1cd104e9225e1ff921b551, type: 2}
   treeData: {fileID: 11400000, guid: 33729539dc596f844b87e888789beace, type: 2}
+  deadTime: 5
