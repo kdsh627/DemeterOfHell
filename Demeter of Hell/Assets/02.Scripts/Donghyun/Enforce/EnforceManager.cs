@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using Types;
 using UnityEngine;
 
 namespace Donghyun.Enforce
@@ -28,6 +30,33 @@ namespace Donghyun.Enforce
         [SerializeField] private EnforceInfo riceProduction;
         [SerializeField] private EnforceInfo peaShootDamage;
         [SerializeField] private EnforceInfo hpBuff;
+
+        private static EnforceManager instance;
+
+        public static EnforceManager Instance
+        {
+            get
+            {
+                if (instance == null) instance = new EnforceManager();
+                return instance;
+            }
+        }
+
+        private void Awake()
+        {
+            //인스턴스가 비어있다면 할당해주고, 
+            //해당 오브젝트를 씬 이동간 파괴하지 않게함
+            if (instance == null)
+            {
+                instance = this;
+                DontDestroyOnLoad(gameObject);
+            }
+            // 인스턴스가 이미 할당돼있다면(2개 이상이라면) 파괴
+            else
+            {
+                Destroy(gameObject);
+            }
+        }
 
         public void EnforcePlayerDamage()
         {
